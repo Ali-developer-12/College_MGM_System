@@ -5,6 +5,37 @@ A comprehensive, modern College Management System built with HTML5, CSS3, Bootst
 
 ---
 
+## please everyone Add full Details of your page in readme file and Add new features in Frontend
+
+## Add css files in CSS folder and add Html files in his page folder
+
+## Task of All Engineers
+(1) Mudasir Iqbal (clerk & HOD)
+    Details....
+
+(2) Umair Haider (transport & library)
+     Details....
+
+
+(3) Hammad  Ali (Students)
+     Details....
+
+
+
+(4) Abdul-Rasheed  (Principle)
+     Details....
+
+
+
+(5) Ali Raza  (Teachers)
+     Details....
+
+
+
+
+
+
+
 ## 🚀 Quick Start
 
 1. Open `index.html` in your browser
