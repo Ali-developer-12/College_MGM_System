@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - CMS | GCT Bhakkar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <i class="bi bi-mortarboard-fill"></i>
+                </div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Main Menu</p>
+                    <div class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="attendance.html" class="nav-link">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="marks.html" class="nav-link">
+                            <i class="bi bi-file-earmark-text"></i>
+                            <span>Marks & Grades</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="subjects.html" class="nav-link">
+                            <i class="bi bi-book"></i>
+                            <span>Subjects</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <p class="nav-section-title">Services</p>
+                    <div class="nav-item">
+                        <a href="transport.html" class="nav-link">
+                            <i class="bi bi-bus-front"></i>
+                            <span>Transport</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="library.html" class="nav-link">
+                            <i class="bi bi-journal-bookmark"></i>
+                            <span>Library</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="fees.html" class="nav-link">
+                            <i class="bi bi-credit-card"></i>
+                            <span>Fee Status</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <p class="nav-section-title">Other</p>
+                    <div class="nav-item">
+                        <a href="notices.html" class="nav-link">
+                            <i class="bi bi-bell"></i>
+                            <span>Notices</span>
+                            <span class="badge">3</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="profile.html" class="nav-link">
+                            <i class="bi bi-person"></i>
+                            <span>Profile</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">MA</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Muhammad Ali</div>
+                        <div class="sidebar-user-role" id="userRole">Student</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navbar -->
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
+                    <div>
+                        <h1 class="page-title">Dashboard</h1>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="navbar-right">
+                    <div class="navbar-search">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search...">
+                    </div>
+
+                    <div class="navbar-notifications dropdown-cms" id="notificationsDropdown">
+                        <button class="notification-btn">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h6>Notifications</h6>
+                                <a href="#" class="text-primary fs-sm">Mark all read</a>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item unread">
+                                    <div class="avatar avatar-sm bg-primary-light text-primary">
+                                        <i class="bi bi-megaphone"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">New Notice Posted</p>
+                                        <p class="notification-text">Holiday announced for Dec 25</p>
+                                        <span class="notification-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item unread">
+                                    <div class="avatar avatar-sm bg-success-light text-success">
+                                        <i class="bi bi-check-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Marks Updated</p>
+                                        <p class="notification-text">Monthly test marks available</p>
+                                        <span class="notification-time">5 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="avatar avatar-sm bg-warning-light text-warning">
+                                        <i class="bi bi-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Attendance Alert</p>
+                                        <p class="notification-text">Your attendance is below 75%</p>
+                                        <span class="notification-time">1 day ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification-footer">
+                                <a href="notices.html">View All Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dropdown-cms" id="userDropdown">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Muhammad Ali</div>
+                                <div class="navbar-user-role" id="navUserRole">24-CIT-101</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">MA</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="profile.html" class="dropdown-item-cms">
+                                <i class="bi bi-person"></i>
+                                <span>My Profile</span>
+                            </a>
+                            <a href="#" class="dropdown-item-cms">
+                                <i class="bi bi-gear"></i>
+                                <span>Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Welcome Card -->
+                <div class="card-cms mb-4 animate-fade-in" style="background: var(--gradient-primary); color: white;">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3 class="text-white mb-2">Welcome back, <span id="welcomeName">Muhammad Ali</span>! 👋
+                                </h3>
+                                <p class="mb-0 opacity-75">Here's what's happening with your academics today.</p>
+                            </div>
+                            <div class="col-md-4 text-end d-none d-md-block">
+                                <div class="fs-sm opacity-75" id="currentDate">Tuesday, December 24, 2024</div>
+                                <div class="fs-lg fw-bold" id="currentTime">10:30 AM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card animate-fade-in-up stagger-1">
+                        <div class="stat-icon primary">
+                            <i class="bi bi-calendar-check"></i>
+                        </div>
+                        <div class="stat-value" id="attendancePercent">78%</div>
+                        <div class="stat-label">Overall Attendance</div>
+                        <div class="stat-trend down">
+                            <i class="bi bi-arrow-down"></i> Below 80%
+                        </div>
+                    </div>
+
+                    <div class="stat-card success animate-fade-in-up stagger-2">
+                        <div class="stat-icon success">
+                            <i class="bi bi-trophy"></i>
+                        </div>
+                        <div class="stat-value">3.45</div>
+                        <div class="stat-label">Current GPA</div>
+                        <div class="stat-trend up">
+                            <i class="bi bi-arrow-up"></i> +0.12 from last
+                        </div>
+                    </div>
+
+                    <div class="stat-card warning animate-fade-in-up stagger-3">
+                        <div class="stat-icon warning">
+                            <i class="bi bi-book"></i>
+                        </div>
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Enrolled Subjects</div>
+                    </div>
+
+                    <div class="stat-card info animate-fade-in-up stagger-4">
+                        <div class="stat-icon danger">
+                            <i class="bi bi-journal-bookmark"></i>
+                        </div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Books Issued</div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row g-4 mb-4">
+                    <!-- Attendance Overview -->
+                    <div class="col-lg-8">
+                        <div class="card-cms animate-fade-in">
+                            <div class="card-header">
+                                <h5 class="mb-0">Attendance Overview</h5>
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>This Month</option>
+                                    <option>Last Month</option>
+                                    <option>This Semester</option>
+                                </select>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table-cms">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Total Classes</th>
+                                                <th>Present</th>
+                                                <th>Absent</th>
+                                                <th>Percentage</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Programming Fundamentals</strong></td>
+                                                <td>24</td>
+                                                <td class="text-success">20</td>
+                                                <td class="text-danger">4</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-cms" style="width: 100px;">
+                                                            <div class="progress-bar-cms success" style="width: 83%;">
+                                                            </div>
+                                                        </div>
+                                                        <span class="badge-cms badge-success">83%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Database Systems</strong></td>
+                                                <td>22</td>
+                                                <td class="text-success">18</td>
+                                                <td class="text-danger">4</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-cms" style="width: 100px;">
+                                                            <div class="progress-bar-cms success" style="width: 82%;">
+                                                            </div>
+                                                        </div>
+                                                        <span class="badge-cms badge-success">82%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Web Development</strong></td>
+                                                <td>20</td>
+                                                <td class="text-success">18</td>
+                                                <td class="text-danger">2</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-cms" style="width: 100px;">
+                                                            <div class="progress-bar-cms success" style="width: 90%;">
+                                                            </div>
+                                                        </div>
+                                                        <span class="badge-cms badge-success">90%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Digital Logic Design</strong></td>
+                                                <td>18</td>
+                                                <td class="text-success">12</td>
+                                                <td class="text-danger">6</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-cms" style="width: 100px;">
+                                                            <div class="progress-bar-cms warning" style="width: 67%;">
+                                                            </div>
+                                                        </div>
+                                                        <span class="badge-cms badge-warning">67%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Mathematics</strong></td>
+                                                <td>22</td>
+                                                <td class="text-success">16</td>
+                                                <td class="text-danger">6</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-cms" style="width: 100px;">
+                                                            <div class="progress-bar-cms warning" style="width: 73%;">
+                                                            </div>
+                                                        </div>
+                                                        <span class="badge-cms badge-warning">73%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>English</strong></td>
+                                                <td>18</td>
+                                                <td class="text-success">14</td>
+                                                <td class="text-danger">4</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <div class="progress-cms" style="width: 100px;">
+                                                            <div class="progress-bar-cms" style="width: 78%;"></div>
+                                                        </div>
+                                                        <span class="badge-cms badge-primary">78%</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Circular Progress -->
+                    <div class="col-lg-4">
+                        <div class="card-cms animate-fade-in h-100">
+                            <div class="card-header">
+                                <h5 class="mb-0">Overall Progress</h5>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="progress-circle mx-auto mb-4">
+                                    <svg width="120" height="120" viewBox="0 0 120 120">
+                                        <circle class="progress-circle-bg" cx="60" cy="60" r="52" />
+                                        <circle class="progress-circle-fill" cx="60" cy="60" r="52"
+                                            stroke-dasharray="326.73" stroke-dashoffset="71.88"
+                                            style="stroke: var(--success);" />
+                                    </svg>
+                                    <div class="progress-circle-text">
+                                        <div class="progress-circle-value">78%</div>
+                                        <div class="progress-circle-label">Attendance</div>
+                                    </div>
+                                </div>
+
+                                <div class="text-start">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span class="text-muted">Classes Attended</span>
+                                        <span class="fw-semibold">98 / 124</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span class="text-muted">Days Present</span>
+                                        <span class="fw-semibold">45 / 58</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span class="text-muted">Required for 75%</span>
+                                        <span class="fw-semibold text-success">Achieved ✓</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="row g-4">
+                    <!-- Recent Marks -->
+                    <div class="col-lg-6">
+                        <div class="card-cms animate-fade-in">
+                            <div class="card-header">
+                                <h5 class="mb-0">Recent Marks</h5>
+                                <a href="marks.html" class="btn-cms btn-ghost btn-sm">View All</a>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="table-responsive">
+                                    <table class="table-cms">
+                                        <thead>
+                                            <tr>
+                                                <th>Subject</th>
+                                                <th>Test Type</th>
+                                                <th>Marks</th>
+                                                <th>Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Programming</td>
+                                                <td><span class="badge-cms badge-info">Monthly</span></td>
+                                                <td>42/50</td>
+                                                <td><span class="badge-cms badge-success">A</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Database</td>
+                                                <td><span class="badge-cms badge-info">Monthly</span></td>
+                                                <td>38/50</td>
+                                                <td><span class="badge-cms badge-success">B+</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Web Dev</td>
+                                                <td><span class="badge-cms badge-warning">Sessional</span></td>
+                                                <td>85/100</td>
+                                                <td><span class="badge-cms badge-success">A</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Mathematics</td>
+                                                <td><span class="badge-cms badge-info">Monthly</span></td>
+                                                <td>32/50</td>
+                                                <td><span class="badge-cms badge-warning">C+</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming & Notices -->
+                    <div class="col-lg-6">
+                        <div class="card-cms animate-fade-in">
+                            <div class="card-header">
+                                <h5 class="mb-0">Notices & Announcements</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert-cms alert-info mb-3">
+                                    <i class="bi bi-megaphone-fill"></i>
+                                    <div>
+                                        <strong>Holiday Notice</strong>
+                                        <p class="mb-0 fs-sm">College will remain closed on Dec 25 for Christmas.</p>
+                                    </div>
+                                </div>
+                                <div class="alert-cms alert-warning mb-3">
+                                    <i class="bi bi-exclamation-circle-fill"></i>
+                                    <div>
+                                        <strong>Fee Reminder</strong>
+                                        <p class="mb-0 fs-sm">Last date for fee submission is Dec 30.</p>
+                                    </div>
+                                </div>
+                                <div class="alert-cms alert-success">
+                                    <i class="bi bi-trophy-fill"></i>
+                                    <div>
+                                        <strong>Congratulations!</strong>
+                                        <p class="mb-0 fs-sm">You are in top 10 performers of your class.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        // Protect page
+        if (!protectPage(['student'])) {
+            // Redirect handled by protectPage
+        }
+
+        // Load user data
+        const user = getCurrentUser();
+        if (user) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase();
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('navUserName').textContent = user.name;
+            document.getElementById('welcomeName').textContent = user.name.split(' ')[0];
+            document.getElementById('navUserRole').textContent = user.id;
+            document.getElementById('userAvatar').textContent = initials;
+            document.getElementById('navAvatar').textContent = initials;
+        }
+
+        // Update time
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', {
+                hour: '2-digit', minute: '2-digit'
+            });
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        // Sidebar toggle
+        document.getElementById('sidebarToggle').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('collapsed');
+        });
+
+        // Dropdowns
+        document.querySelectorAll('.dropdown-cms').forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('show');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show'));
+        });
+    </script>
+</body>
+
+</html>

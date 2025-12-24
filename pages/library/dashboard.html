@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Dashboard - CMS | GCT Bhakkar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Library</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link active"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="books.html" class="nav-link"><i
+                                class="bi bi-book"></i><span>Books</span></a></div>
+                    <div class="nav-item"><a href="issues.html" class="nav-link"><i
+                                class="bi bi-journal-arrow-up"></i><span>Issue Book</span></a></div>
+                    <div class="nav-item"><a href="returns.html" class="nav-link"><i
+                                class="bi bi-journal-arrow-down"></i><span>Returns</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Management</p>
+                    <div class="nav-item"><a href="members.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>Members</span></a></div>
+                    <div class="nav-item"><a href="fines.html" class="nav-link"><i
+                                class="bi bi-cash"></i><span>Fines</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">KM</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Mr. Khalid Mehmood</div>
+                        <div class="sidebar-user-role">Librarian</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Library Dashboard</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="navbar-search"><i class="bi bi-search"></i><input type="text"
+                            placeholder="Search books..."></div>
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Mr. Khalid Mehmood</div>
+                                <div class="navbar-user-role" id="navUserRole">LIB-001</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">KM</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Welcome -->
+                <div class="card-cms mb-4"
+                    style="background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%); color: white;">
+                    <div class="card-body">
+                        <h3 class="text-white mb-2">Library Management 📚</h3>
+                        <p class="mb-0 opacity-75">Manage books, issues, returns, and member records</p>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <a href="issues.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon primary mx-auto mb-3"><i class="bi bi-journal-arrow-up"></i></div>
+                            <h6 class="mb-1">Issue Book</h6>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="returns.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon success mx-auto mb-3"><i class="bi bi-journal-arrow-down"></i></div>
+                            <h6 class="mb-1">Return Book</h6>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="books.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon warning mx-auto mb-3"><i class="bi bi-plus-circle"></i></div>
+                            <h6 class="mb-1">Add Book</h6>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="fines.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon danger mx-auto mb-3"><i class="bi bi-cash"></i></div>
+                            <h6 class="mb-1">Collect Fine</h6>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary"><i class="bi bi-book"></i></div>
+                        <div class="stat-value">12,450</div>
+                        <div class="stat-label">Total Books</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-journal-check"></i></div>
+                        <div class="stat-value">248</div>
+                        <div class="stat-label">Books Issued</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-clock-history"></i></div>
+                        <div class="stat-value">32</div>
+                        <div class="stat-label">Overdue</div>
+                    </div>
+                    <div class="stat-card info">
+                        <div class="stat-icon danger"><i class="bi bi-people"></i></div>
+                        <div class="stat-value">1,245</div>
+                        <div class="stat-label">Active Members</div>
+                    </div>
+                </div>
+
+                <!-- Recent & Overdue -->
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-7">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Recent Issues</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table-cms">
+                                    <thead>
+                                        <tr>
+                                            <th>Book</th>
+                                            <th>Student</th>
+                                            <th>Issue Date</th>
+                                            <th>Due Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Database Systems</strong></td>
+                                            <td>Ahmad (24-CIT-101)</td>
+                                            <td>Dec 20</td>
+                                            <td>Jan 3</td>
+                                            <td><span class="badge-cms badge-success">Active</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>C++ Programming</strong></td>
+                                            <td>Sara (24-CIT-105)</td>
+                                            <td>Dec 18</td>
+                                            <td>Jan 1</td>
+                                            <td><span class="badge-cms badge-success">Active</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Web Development</strong></td>
+                                            <td>Usman (23-CIT-102)</td>
+                                            <td>Dec 10</td>
+                                            <td>Dec 24</td>
+                                            <td><span class="badge-cms badge-danger">Overdue</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Overdue Returns</h5><span class="badge-cms badge-danger">32</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert-cms alert-danger mb-3">
+                                    <i class="bi bi-exclamation-circle"></i>
+                                    <div>
+                                        <strong>Usman Ali</strong> - Web Development
+                                        <p class="mb-0 fs-sm">Overdue by 5 days • Fine: Rs. 50</p>
+                                    </div>
+                                </div>
+                                <div class="alert-cms alert-warning mb-3">
+                                    <i class="bi bi-clock"></i>
+                                    <div>
+                                        <strong>Fatima Khan</strong> - Data Structures
+                                        <p class="mb-0 fs-sm">Overdue by 2 days • Fine: Rs. 20</p>
+                                    </div>
+                                </div>
+                                <div class="alert-cms alert-warning">
+                                    <i class="bi bi-clock"></i>
+                                    <div>
+                                        <strong>Hassan Raza</strong> - Networking
+                                        <p class="mb-0 fs-sm">Overdue by 1 day • Fine: Rs. 10</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['library'])) { }
+        const user = getCurrentUser();
+        if (user) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('navUserName').textContent = user.name;
+            document.getElementById('navUserRole').textContent = user.id;
+            document.querySelectorAll('#userAvatar, #navAvatar').forEach(el => el.textContent = initials);
+        }
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+        document.querySelectorAll('.dropdown-cms').forEach(d => d.addEventListener('click', e => { e.stopPropagation(); d.classList.toggle('show'); }));
+        document.addEventListener('click', () => document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show')));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOD Dashboard - CMS | GCT Bhakkar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Main Menu</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link active"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="department.html" class="nav-link"><i
+                                class="bi bi-building"></i><span>Department</span></a></div>
+                    <div class="nav-item"><a href="teachers.html" class="nav-link"><i
+                                class="bi bi-person-workspace"></i><span>Teachers</span></a></div>
+                    <div class="nav-item"><a href="students.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>Students</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Management</p>
+                    <div class="nav-item"><a href="approvals.html" class="nav-link"><i
+                                class="bi bi-check-circle"></i><span>Approvals</span><span class="badge">5</span></a>
+                    </div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Attendance</span></a></div>
+                    <div class="nav-item"><a href="results.html" class="nav-link"><i
+                                class="bi bi-file-earmark-text"></i><span>Results</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-bar-chart"></i><span>Reports</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Other</p>
+                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
+                                class="bi bi-bell"></i><span>Notices</span></a></div>
+                    <div class="nav-item"><a href="profile.html" class="nav-link"><i
+                                class="bi bi-person"></i><span>Profile</span></a></div>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">AU</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Dr. Asad Ullah</div>
+                        <div class="sidebar-user-role">HOD - CIT</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">HOD Dashboard</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="navbar-notifications dropdown-cms">
+                        <button class="notification-btn"><i class="bi bi-bell"></i><span
+                                class="notification-badge">5</span></button>
+                    </div>
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Dr. Asad Ullah</div>
+                                <div class="navbar-user-role" id="navUserRole">HOD-CIT</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">AU</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="profile.html" class="dropdown-item-cms"><i
+                                    class="bi bi-person"></i><span>Profile</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Welcome Card -->
+                <div class="card-cms mb-4"
+                    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white;">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3 class="text-white mb-2">Welcome, <span id="welcomeName">Dr. Asad Ullah</span>! 👋
+                                </h3>
+                                <p class="mb-0 opacity-75">Computer Information Technology Department Overview</p>
+                            </div>
+                            <div class="col-md-4 text-end d-none d-md-block">
+                                <div class="fs-sm opacity-75" id="currentDate"></div>
+                                <div class="fs-lg fw-bold" id="currentTime"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary"><i class="bi bi-people"></i></div>
+                        <div class="stat-value">245</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-person-workspace"></i></div>
+                        <div class="stat-value">8</div>
+                        <div class="stat-label">Teachers</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-check-circle"></i></div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Pending Approvals</div>
+                    </div>
+                    <div class="stat-card info">
+                        <div class="stat-icon danger"><i class="bi bi-graph-up"></i></div>
+                        <div class="stat-value">82%</div>
+                        <div class="stat-label">Avg. Attendance</div>
+                    </div>
+                </div>
+
+                <!-- Content Row -->
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-8">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Teachers Performance</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table-cms">
+                                    <thead>
+                                        <tr>
+                                            <th>Teacher</th>
+                                            <th>Subject</th>
+                                            <th>Classes</th>
+                                            <th>Attendance</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="avatar avatar-sm">SM</div><strong>Mr. Shahid
+                                                        Mahmood</strong>
+                                                </div>
+                                            </td>
+                                            <td>Programming</td>
+                                            <td>24/24</td>
+                                            <td>
+                                                <div class="progress-cms" style="width:80px">
+                                                    <div class="progress-bar-cms success" style="width:92%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge-cms badge-success">Excellent</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="avatar avatar-sm">AH</div><strong>Mr. Ali
+                                                        Hassan</strong>
+                                                </div>
+                                            </td>
+                                            <td>Database</td>
+                                            <td>22/24</td>
+                                            <td>
+                                                <div class="progress-cms" style="width:80px">
+                                                    <div class="progress-bar-cms" style="width:85%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge-cms badge-success">Good</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex align-items-center gap-2">
+                                                    <div class="avatar avatar-sm">NK</div><strong>Ms. Nadia
+                                                        Khan</strong>
+                                                </div>
+                                            </td>
+                                            <td>Web Dev</td>
+                                            <td>20/24</td>
+                                            <td>
+                                                <div class="progress-cms" style="width:80px">
+                                                    <div class="progress-bar-cms warning" style="width:78%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge-cms badge-warning">Average</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Pending Approvals</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
+                                    <div class="avatar avatar-sm bg-primary-light text-primary"><i
+                                            class="bi bi-file-text"></i></div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0 fs-sm">Monthly Test Results</h6><small class="text-muted">By Mr.
+                                            Shahid</small>
+                                    </div>
+                                    <button class="btn-cms btn-primary btn-sm">Review</button>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
+                                    <div class="avatar avatar-sm bg-warning-light text-warning"><i
+                                            class="bi bi-calendar-x"></i></div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0 fs-sm">Leave Request</h6><small class="text-muted">Mr. Ali
+                                            Hassan</small>
+                                    </div>
+                                    <button class="btn-cms btn-primary btn-sm">Review</button>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="avatar avatar-sm bg-success-light text-success"><i
+                                            class="bi bi-person-plus"></i></div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0 fs-sm">New Admission</h6><small class="text-muted">3 students
+                                            pending</small>
+                                    </div>
+                                    <button class="btn-cms btn-primary btn-sm">Review</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['hod'])) { }
+        const user = getCurrentUser();
+        if (user) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            document.getElementById('userName').textContent = user.name;
+            document.getElementById('navUserName').textContent = user.name;
+            document.getElementById('welcomeName').textContent = user.name;
+            document.getElementById('navUserRole').textContent = user.id;
+            document.querySelectorAll('#userAvatar, #navAvatar').forEach(el => el.textContent = initials);
+        }
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        }
+        updateTime(); setInterval(updateTime, 60000);
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+        document.querySelectorAll('.dropdown-cms').forEach(d => d.addEventListener('click', e => { e.stopPropagation(); d.classList.toggle('show'); }));
+        document.addEventListener('click', () => document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show')));
+    </script>
+</body>
+
+</html>

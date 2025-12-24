@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - CMS | GCT Bhakkar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Main Menu</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link active"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Mark Attendance</span></a></div>
+                    <div class="nav-item"><a href="marks-entry.html" class="nav-link"><i
+                                class="bi bi-pencil-square"></i><span>Marks Entry</span></a></div>
+                    <div class="nav-item"><a href="my-classes.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>My Classes</span></a></div>
+                </div>
+
+                <div class="nav-section">
+                    <p class="nav-section-title">Analytics</p>
+                    <div class="nav-item"><a href="student-progress.html" class="nav-link"><i
+                                class="bi bi-graph-up"></i><span>Student Progress</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+
+                <div class="nav-section">
+                    <p class="nav-section-title">Other</p>
+                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
+                                class="bi bi-bell"></i><span>Notices</span><span class="badge">2</span></a></div>
+                    <div class="nav-item"><a href="profile.html" class="nav-link"><i
+                                class="bi bi-person"></i><span>Profile</span></a></div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">SM</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Mr. Shahid</div>
+                        <div class="sidebar-user-role">Teacher</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Teacher Dashboard</h1>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="navbar-right">
+                    <div class="navbar-search"><i class="bi bi-search"></i><input type="text"
+                            placeholder="Search students..."></div>
+                    <div class="navbar-notifications dropdown-cms">
+                        <button class="notification-btn"><i class="bi bi-bell"></i><span
+                                class="notification-badge">2</span></button>
+                    </div>
+                    <div class="dropdown-cms" id="userDropdown">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Mr. Shahid Mahmood</div>
+                                <div class="navbar-user-role" id="navUserRole">T-CIT-001</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">SM</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="profile.html" class="dropdown-item-cms"><i class="bi bi-person"></i><span>My
+                                    Profile</span></a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Welcome -->
+                <div class="card-cms mb-4 animate-fade-in"
+                    style="background: linear-gradient(135deg, #059669 0%, #10b981 100%); color: white;">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-8">
+                                <h3 class="text-white mb-2">Good Morning, <span id="welcomeName">Mr. Shahid</span>! 👋
+                                </h3>
+                                <p class="mb-0 opacity-75">You have 3 classes scheduled today. Don't forget to mark
+                                    attendance!</p>
+                            </div>
+                            <div class="col-md-4 text-end d-none d-md-block">
+                                <div class="fs-sm opacity-75" id="currentDate"></div>
+                                <div class="fs-lg fw-bold" id="currentTime"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <a href="attendance.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon primary mx-auto mb-3"><i class="bi bi-calendar-check"></i></div>
+                            <h6 class="mb-1">Mark Attendance</h6>
+                            <small class="text-muted">Quick attendance entry</small>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="marks-entry.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon success mx-auto mb-3"><i class="bi bi-pencil-square"></i></div>
+                            <h6 class="mb-1">Enter Marks</h6>
+                            <small class="text-muted">Monthly/Sessional marks</small>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="reports.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon warning mx-auto mb-3"><i class="bi bi-file-earmark-bar-graph"></i>
+                            </div>
+                            <h6 class="mb-1">Generate Report</h6>
+                            <small class="text-muted">Class performance</small>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="student-progress.html"
+                            class="card-cms text-center p-4 hover-lift text-decoration-none">
+                            <div class="stat-icon danger mx-auto mb-3"><i class="bi bi-graph-up"></i></div>
+                            <h6 class="mb-1">View Analytics</h6>
+                            <small class="text-muted">Student progress</small>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card animate-fade-in-up">
+                        <div class="stat-icon primary"><i class="bi bi-people"></i></div>
+                        <div class="stat-value">156</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+                    <div class="stat-card success animate-fade-in-up">
+                        <div class="stat-icon success"><i class="bi bi-book"></i></div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Subjects Teaching</div>
+                    </div>
+                    <div class="stat-card warning animate-fade-in-up">
+                        <div class="stat-icon warning"><i class="bi bi-calendar-x"></i></div>
+                        <div class="stat-value">12</div>
+                        <div class="stat-label">Pending Attendance</div>
+                    </div>
+                    <div class="stat-card info animate-fade-in-up">
+                        <div class="stat-icon danger"><i class="bi bi-file-text"></i></div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Pending Marks</div>
+                    </div>
+                </div>
+
+                <!-- Today's Classes & Low Attendance -->
+                <div class="row g-4 mt-2">
+                    <div class="col-lg-7">
+                        <div class="card-cms animate-fade-in">
+                            <div class="card-header">
+                                <h5 class="mb-0">Today's Schedule</h5>
+                                <span class="badge-cms badge-primary">3 Classes</span>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table-cms">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Subject</th>
+                                            <th>Class</th>
+                                            <th>Room</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>09:00 AM</strong></td>
+                                            <td>Programming Fundamentals</td>
+                                            <td>1st Year CIT-A</td>
+                                            <td>Lab 3</td>
+                                            <td><span class="badge-cms badge-success">Completed</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>11:00 AM</strong></td>
+                                            <td>Database Systems</td>
+                                            <td>2nd Year CIT-A</td>
+                                            <td>Room 12</td>
+                                            <td><a href="attendance.html" class="btn-cms btn-primary btn-sm">Mark
+                                                    Attendance</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>02:00 PM</strong></td>
+                                            <td>Web Development</td>
+                                            <td>1st Year CIT-B</td>
+                                            <td>Lab 2</td>
+                                            <td><span class="badge-cms badge-secondary">Upcoming</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="card-cms animate-fade-in">
+                            <div class="card-header">
+                                <h5 class="mb-0">Low Attendance Alert</h5>
+                                <span class="badge-cms badge-danger">Below 75%</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
+                                    <div class="avatar avatar-md bg-danger-light text-danger">UA</div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0">Usman Ahmed</h6>
+                                        <small class="text-muted">24-CIT-105 • Programming</small>
+                                    </div>
+                                    <span class="badge-cms badge-danger">62%</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom">
+                                    <div class="avatar avatar-md bg-warning-light text-warning">AK</div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0">Ayesha Khan</h6>
+                                        <small class="text-muted">24-CIT-108 • Database</small>
+                                    </div>
+                                    <span class="badge-cms badge-warning">71%</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="avatar avatar-md bg-warning-light text-warning">HR</div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="mb-0">Hassan Raza</h6>
+                                        <small class="text-muted">24-CIT-112 • Web Dev</small>
+                                    </div>
+                                    <span class="badge-cms badge-warning">73%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['teacher'])) { }
+
+        const user = getCurrentUser();
+        if (user) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            document.getElementById('userName').textContent = user.name.split(' ').slice(0, 2).join(' ');
+            document.getElementById('navUserName').textContent = user.name;
+            document.getElementById('welcomeName').textContent = user.name.split(' ')[0] + ' ' + user.name.split(' ')[1];
+            document.getElementById('navUserRole').textContent = user.id;
+            document.querySelectorAll('#userAvatar, #navAvatar').forEach(el => el.textContent = initials);
+        }
+
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+        }
+        updateTime();
+        setInterval(updateTime, 60000);
+
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+
+        document.querySelectorAll('.dropdown-cms').forEach(dropdown => {
+            dropdown.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('show'); });
+        });
+        document.addEventListener('click', () => document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show')));
+    </script>
+</body>
+
+</html>

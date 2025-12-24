@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Entry - Teacher | CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <style>
+        .marks-input {
+            width: 70px;
+            text-align: center;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            padding: 8px;
+            font-weight: 600;
+        }
+
+        .marks-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .marks-input.pass {
+            border-color: var(--success);
+            background: var(--success-light);
+        }
+
+        .marks-input.fail {
+            border-color: var(--danger);
+            background: var(--danger-light);
+        }
+
+        .grade-badge {
+            min-width: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Main Menu</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Mark Attendance</span></a></div>
+                    <div class="nav-item"><a href="marks-entry.html" class="nav-link active"><i
+                                class="bi bi-pencil-square"></i><span>Marks Entry</span></a></div>
+                    <div class="nav-item"><a href="my-classes.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>My Classes</span></a></div>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">SM</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Mr. Shahid</div>
+                        <div class="sidebar-user-role">Teacher</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Marks Entry</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-name" id="navUserName">Mr. Shahid</div>
+                            <div class="avatar avatar-md" id="navAvatar">SM</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Filter Bar -->
+                <div class="card-cms mb-4">
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Subject</label>
+                                <select class="form-select" id="subjectSelect">
+                                    <option value="prog" selected>Programming Fundamentals</option>
+                                    <option value="db">Database Systems</option>
+                                    <option value="web">Web Development</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Class</label>
+                                <select class="form-select" id="classSelect">
+                                    <option value="1cit-a" selected>1st Year CIT-A</option>
+                                    <option value="1cit-b">1st Year CIT-B</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Test Type</label>
+                                <select class="form-select" id="testType">
+                                    <option value="monthly" selected>Monthly Test</option>
+                                    <option value="sessional">Sessional</option>
+                                    <option value="practical">Practical</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Total Marks</label>
+                                <input type="number" class="form-control" id="totalMarks" value="50">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Pass Marks</label>
+                                <input type="number" class="form-control" id="passMarks" value="17">
+                            </div>
+                            <div class="col-md-1 d-flex align-items-end">
+                                <button class="btn-cms btn-primary" onclick="loadMarksSheet()"><i
+                                        class="bi bi-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Marks Entry Table -->
+                <div class="card-cms">
+                    <div class="card-header">
+                        <h5 class="mb-0">Enter Marks - Programming Fundamentals (Monthly Test)</h5>
+                        <button class="btn-cms btn-success btn-sm" onclick="saveMarks()"><i
+                                class="bi bi-check-circle"></i> Save Marks</button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table-cms" id="marksTable">
+                                <thead>
+                                    <tr>
+                                        <th style="width:50px">#</th>
+                                        <th>Roll No</th>
+                                        <th>Student Name</th>
+                                        <th style="width:100px">Marks <small class="text-muted">(/ 50)</small></th>
+                                        <th style="width:80px">Grade</th>
+                                        <th style="width:80px">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="marksTableBody">
+                                    <!-- Generated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between">
+                        <div>
+                            <span class="text-muted">Class Average: </span>
+                            <strong id="classAverage">-</strong>
+                        </div>
+                        <div>
+                            <span class="badge-cms badge-success me-2">Pass: <span id="passCount">0</span></span>
+                            <span class="badge-cms badge-danger">Fail: <span id="failCount">0</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['teacher'])) { }
+
+        const students = [
+            { id: '24-CIT-101', name: 'Muhammad Ali' },
+            { id: '24-CIT-102', name: 'Fatima Khan' },
+            { id: '24-CIT-103', name: 'Ahmad Raza' },
+            { id: '24-CIT-104', name: 'Sara Ahmed' },
+            { id: '24-CIT-105', name: 'Usman Tariq' },
+            { id: '24-CIT-106', name: 'Ayesha Bibi' },
+            { id: '24-CIT-107', name: 'Hassan Ali' },
+            { id: '24-CIT-108', name: 'Zainab Fatima' },
+            { id: '24-CIT-109', name: 'Bilal Ahmad' },
+            { id: '24-CIT-110', name: 'Maryam Noor' },
+        ];
+
+        function loadMarksSheet() {
+            const totalMarks = parseInt(document.getElementById('totalMarks').value);
+            const passMarks = parseInt(document.getElementById('passMarks').value);
+
+            const tbody = document.getElementById('marksTableBody');
+            tbody.innerHTML = students.map((s, idx) => `
+                <tr>
+                    <td>${idx + 1}</td>
+                    <td><code>${s.id}</code></td>
+                    <td><strong>${s.name}</strong></td>
+                    <td>
+                        <input type="number" class="marks-input" id="marks-${s.id}" 
+                               min="0" max="${totalMarks}" placeholder="0"
+                               onchange="updateGrade('${s.id}', ${totalMarks}, ${passMarks})">
+                    </td>
+                    <td><span class="badge-cms badge-secondary grade-badge" id="grade-${s.id}">-</span></td>
+                    <td><span class="badge-cms badge-secondary" id="status-${s.id}">-</span></td>
+                </tr>
+            `).join('');
+        }
+
+        function getGrade(marks, total) {
+            const percent = (marks / total) * 100;
+            if (percent >= 90) return 'A+';
+            if (percent >= 80) return 'A';
+            if (percent >= 70) return 'B+';
+            if (percent >= 60) return 'B';
+            if (percent >= 50) return 'C+';
+            if (percent >= 40) return 'C';
+            if (percent >= 33) return 'D';
+            return 'F';
+        }
+
+        function updateGrade(id, total, pass) {
+            const input = document.getElementById('marks-' + id);
+            const gradeEl = document.getElementById('grade-' + id);
+            const statusEl = document.getElementById('status-' + id);
+            const marks = parseInt(input.value) || 0;
+
+            const grade = getGrade(marks, total);
+            const passed = marks >= pass;
+
+            gradeEl.textContent = grade;
+            gradeEl.className = 'badge-cms grade-badge ' + (passed ? 'badge-success' : 'badge-danger');
+
+            statusEl.textContent = passed ? 'Pass' : 'Fail';
+            statusEl.className = 'badge-cms ' + (passed ? 'badge-success' : 'badge-danger');
+
+            input.className = 'marks-input ' + (passed ? 'pass' : 'fail');
+
+            updateStats();
+        }
+
+        function updateStats() {
+            const total = parseInt(document.getElementById('totalMarks').value);
+            const pass = parseInt(document.getElementById('passMarks').value);
+            let sum = 0, count = 0, passCount = 0, failCount = 0;
+
+            students.forEach(s => {
+                const marks = parseInt(document.getElementById('marks-' + s.id)?.value) || 0;
+                if (marks > 0) {
+                    sum += marks;
+                    count++;
+                    if (marks >= pass) passCount++;
+                    else failCount++;
+                }
+            });
+
+            document.getElementById('classAverage').textContent = count > 0 ? (sum / count).toFixed(1) + ' / ' + total : '-';
+            document.getElementById('passCount').textContent = passCount;
+            document.getElementById('failCount').textContent = failCount;
+        }
+
+        function saveMarks() {
+            const allFilled = students.every(s => {
+                const val = document.getElementById('marks-' + s.id)?.value;
+                return val !== '' && val !== undefined;
+            });
+
+            if (!allFilled) {
+                alert('Please enter marks for all students.');
+                return;
+            }
+
+            alert('✅ Marks saved successfully!');
+        }
+
+        // Load on page load
+        loadMarksSheet();
+
+        const user = getCurrentUser();
+        if (user) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            document.getElementById('userName').textContent = user.name.split(' ').slice(0, 2).join(' ');
+            document.getElementById('navUserName').textContent = user.name;
+            document.querySelectorAll('#userAvatar, #navAvatar').forEach(el => el.textContent = initials);
+        }
+
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+        document.querySelectorAll('.dropdown-cms').forEach(d => d.addEventListener('click', e => { e.stopPropagation(); d.classList.toggle('show'); }));
+        document.addEventListener('click', () => document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show')));
+    </script>
+</body>
+
+</html>

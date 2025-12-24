@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance - Teacher | CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <style>
+        .attendance-card {
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: var(--space-4);
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .attendance-card:hover {
+            border-color: var(--primary-light);
+        }
+
+        .attendance-card.present {
+            border-color: var(--success);
+            background: var(--success-light);
+        }
+
+        .attendance-card.absent {
+            border-color: var(--danger);
+            background: var(--danger-light);
+        }
+
+        .attendance-card.late {
+            border-color: var(--warning);
+            background: var(--warning-light);
+        }
+
+        .attendance-status {
+            display: flex;
+            gap: var(--space-2);
+            margin-top: var(--space-3);
+        }
+
+        .status-btn {
+            flex: 1;
+            padding: var(--space-2);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            background: white;
+            cursor: pointer;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .status-btn.present:hover,
+        .status-btn.present.active {
+            background: var(--success);
+            color: white;
+            border-color: var(--success);
+        }
+
+        .status-btn.absent:hover,
+        .status-btn.absent.active {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+        }
+
+        .status-btn.late:hover,
+        .status-btn.late.active {
+            background: var(--warning);
+            color: white;
+            border-color: var(--warning);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-6);
+        }
+
+        .student-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: var(--space-4);
+        }
+
+        .attendance-summary {
+            display: flex;
+            gap: var(--space-6);
+            padding: var(--space-4);
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-4);
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-value {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+        }
+
+        .summary-label {
+            font-size: var(--text-xs);
+            color: var(--gray-500);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Main Menu</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link active"><i
+                                class="bi bi-calendar-check"></i><span>Mark Attendance</span></a></div>
+                    <div class="nav-item"><a href="marks-entry.html" class="nav-link"><i
+                                class="bi bi-pencil-square"></i><span>Marks Entry</span></a></div>
+                    <div class="nav-item"><a href="my-classes.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>My Classes</span></a></div>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">SM</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Mr. Shahid</div>
+                        <div class="sidebar-user-role">Teacher</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Mark Attendance</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-name" id="navUserName">Mr. Shahid Mahmood</div>
+                            <div class="avatar avatar-md" id="navAvatar">SM</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i>Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Filter Bar -->
+                <div class="card-cms mb-4">
+                    <div class="card-body">
+                        <div class="filter-bar">
+                            <div class="flex-grow-1">
+                                <label class="form-label">Subject</label>
+                                <select class="form-select" id="subjectSelect">
+                                    <option value="">Select Subject</option>
+                                    <option value="prog" selected>Programming Fundamentals</option>
+                                    <option value="db">Database Systems</option>
+                                    <option value="web">Web Development</option>
+                                </select>
+                            </div>
+                            <div class="flex-grow-1">
+                                <label class="form-label">Class</label>
+                                <select class="form-select" id="classSelect">
+                                    <option value="">Select Class</option>
+                                    <option value="1cit-a" selected>1st Year CIT-A</option>
+                                    <option value="1cit-b">1st Year CIT-B</option>
+                                    <option value="2cit-a">2nd Year CIT-A</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="form-label">Date</label>
+                                <input type="date" class="form-control" id="attendanceDate" value="">
+                            </div>
+                            <div class="d-flex align-items-end">
+                                <button class="btn-cms btn-primary" onclick="loadStudents()">
+                                    <i class="bi bi-search"></i> Load Students
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary -->
+                <div class="attendance-summary" id="attendanceSummary">
+                    <div class="summary-item">
+                        <div class="summary-value" id="totalCount">32</div>
+                        <div class="summary-label">Total</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value text-success" id="presentCount">0</div>
+                        <div class="summary-label">Present</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value text-danger" id="absentCount">0</div>
+                        <div class="summary-label">Absent</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value text-warning" id="lateCount">0</div>
+                        <div class="summary-label">Late</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-value text-muted" id="unmarkedCount">32</div>
+                        <div class="summary-label">Unmarked</div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="d-flex gap-2 mb-4">
+                    <button class="btn-cms btn-success btn-sm" onclick="markAllPresent()"><i
+                            class="bi bi-check-all"></i> Mark All Present</button>
+                    <button class="btn-cms btn-danger btn-sm" onclick="markAllAbsent()"><i class="bi bi-x-circle"></i>
+                        Mark All Absent</button>
+                    <button class="btn-cms btn-secondary btn-sm" onclick="resetAll()"><i
+                            class="bi bi-arrow-counterclockwise"></i> Reset</button>
+                </div>
+
+                <!-- Students Grid -->
+                <div class="student-grid" id="studentGrid">
+                    <!-- Students will be loaded here -->
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-4 text-center">
+                    <button class="btn-cms btn-primary btn-lg" onclick="submitAttendance()">
+                        <i class="bi bi-check-circle"></i> Submit Attendance
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['teacher'])) { }
+
+        // Set today's date
+        document.getElementById('attendanceDate').value = new Date().toISOString().split('T')[0];
+
+        // Mock students data
+        const students = [
+            { id: '24-CIT-101', name: 'Muhammad Ali', photo: null },
+            { id: '24-CIT-102', name: 'Fatima Khan', photo: null },
+            { id: '24-CIT-103', name: 'Ahmad Raza', photo: null },
+            { id: '24-CIT-104', name: 'Sara Ahmed', photo: null },
+            { id: '24-CIT-105', name: 'Usman Tariq', photo: null },
+            { id: '24-CIT-106', name: 'Ayesha Bibi', photo: null },
+            { id: '24-CIT-107', name: 'Hassan Ali', photo: null },
+            { id: '24-CIT-108', name: 'Zainab Fatima', photo: null },
+            { id: '24-CIT-109', name: 'Bilal Ahmad', photo: null },
+            { id: '24-CIT-110', name: 'Maryam Noor', photo: null },
+            { id: '24-CIT-111', name: 'Imran Khan', photo: null },
+            { id: '24-CIT-112', name: 'Sana Malik', photo: null },
+        ];
+
+        let attendanceData = {};
+
+        function loadStudents() {
+            const grid = document.getElementById('studentGrid');
+            grid.innerHTML = students.map(s => `
+                <div class="attendance-card" id="card-${s.id}" data-id="${s.id}">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar avatar-lg">${s.name.split(' ').map(n => n[0]).join('')}</div>
+                        <div>
+                            <h6 class="mb-0">${s.name}</h6>
+                            <small class="text-muted">${s.id}</small>
+                        </div>
+                    </div>
+                    <div class="attendance-status">
+                        <button class="status-btn present" onclick="markStatus('${s.id}', 'present')">P</button>
+                        <button class="status-btn absent" onclick="markStatus('${s.id}', 'absent')">A</button>
+                        <button class="status-btn late" onclick="markStatus('${s.id}', 'late')">L</button>
+                    </div>
+                </div>
+            `).join('');
+
+            attendanceData = {};
+            updateSummary();
+        }
+
+        function markStatus(id, status) {
+            attendanceData[id] = status;
+            const card = document.getElementById('card-' + id);
+            card.className = 'attendance-card ' + status;
+
+            // Update buttons
+            card.querySelectorAll('.status-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.classList.contains(status)) btn.classList.add('active');
+            });
+
+            updateSummary();
+        }
+
+        function markAllPresent() {
+            students.forEach(s => markStatus(s.id, 'present'));
+        }
+
+        function markAllAbsent() {
+            students.forEach(s => markStatus(s.id, 'absent'));
+        }
+
+        function resetAll() {
+            students.forEach(s => {
+                const card = document.getElementById('card-' + s.id);
+                card.className = 'attendance-card';
+                card.querySelectorAll('.status-btn').forEach(btn => btn.classList.remove('active'));
+            });
+            attendanceData = {};
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const present = Object.values(attendanceData).filter(v => v === 'present').length;
+            const absent = Object.values(attendanceData).filter(v => v === 'absent').length;
+            const late = Object.values(attendanceData).filter(v => v === 'late').length;
+            const unmarked = students.length - present - absent - late;
+
+            document.getElementById('presentCount').textContent = present;
+            document.getElementById('absentCount').textContent = absent;
+            document.getElementById('lateCount').textContent = late;
+            document.getElementById('unmarkedCount').textContent = unmarked;
+        }
+
+        function submitAttendance() {
+            const unmarked = students.length - Object.keys(attendanceData).length;
+            if (unmarked > 0) {
+                alert(`Please mark attendance for all students. ${unmarked} students are unmarked.`);
+                return;
+            }
+
+            // Simulate save
+            alert('✅ Attendance submitted successfully!\n\nPresent: ' +
+                Object.values(attendanceData).filter(v => v === 'present').length +
+                '\nAbsent: ' + Object.values(attendanceData).filter(v => v === 'absent').length +
+                '\nLate: ' + Object.values(attendanceData).filter(v => v === 'late').length);
+        }
+
+        // Load students on page load
+        loadStudents();
+
+        // User info
+        const user = getCurrentUser();
+        if (user) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            document.getElementById('userName').textContent = user.name.split(' ').slice(0, 2).join(' ');
+            document.getElementById('navUserName').textContent = user.name;
+            document.querySelectorAll('#userAvatar, #navAvatar').forEach(el => el.textContent = initials);
+        }
+
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+        document.querySelectorAll('.dropdown-cms').forEach(d => d.addEventListener('click', e => { e.stopPropagation(); d.classList.toggle('show'); }));
+        document.addEventListener('click', () => document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show')));
+    </script>
+</body>
+
+</html>
