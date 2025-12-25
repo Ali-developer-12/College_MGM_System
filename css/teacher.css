@@ -1,0 +1,409 @@
+/*
+==================================================
+  TEACHER MODULE STYLES - CMS
+  Govt College of Technology, Bhakkar
+==================================================
+*/
+
+/* ===== Attendance Cards ===== */
+.attendance-card {
+    background: var(--white);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-xl);
+    padding: var(--space-4);
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.attendance-card:hover {
+    border-color: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.attendance-card.present {
+    border-color: var(--success);
+    background: var(--success-light);
+}
+
+.attendance-card.absent {
+    border-color: var(--danger);
+    background: var(--danger-light);
+}
+
+.attendance-card.late {
+    border-color: var(--warning);
+    background: var(--warning-light);
+}
+
+.attendance-status {
+    display: flex;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+}
+
+.status-btn {
+    flex: 1;
+    padding: var(--space-2);
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    background: white;
+    cursor: pointer;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-btn.present:hover,
+.status-btn.present.active {
+    background: var(--success);
+    color: white;
+    border-color: var(--success);
+}
+
+.status-btn.absent:hover,
+.status-btn.absent.active {
+    background: var(--danger);
+    color: white;
+    border-color: var(--danger);
+}
+
+.status-btn.late:hover,
+.status-btn.late.active {
+    background: var(--warning);
+    color: white;
+    border-color: var(--warning);
+}
+
+/* ===== Marks Entry ===== */
+.marks-input {
+    width: 80px;
+    text-align: center;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    padding: 8px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.marks-input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.1);
+    outline: none;
+}
+
+.marks-input.pass {
+    border-color: var(--success);
+    background: var(--success-light);
+}
+
+.marks-input.fail {
+    border-color: var(--danger);
+    background: var(--danger-light);
+}
+
+.grade-badge {
+    min-width: 45px;
+    padding: 6px 10px;
+    font-weight: 700;
+}
+
+/* ===== Dashboard Responsive Fixes ===== */
+.stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.stat-icon.primary {
+    background: var(--primary-lightest);
+    color: var(--primary);
+}
+
+.stat-icon.success {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.stat-icon.warning {
+    background: var(--warning-light);
+    color: var(--warning);
+}
+
+.stat-icon.danger {
+    background: var(--danger-light);
+    color: var(--danger);
+}
+
+.stat-icon.secondary {
+    background: var(--gray-100);
+    color: var(--gray-600);
+}
+
+/* ===== Progress / Charts ===== */
+.progress-cms {
+    height: 10px;
+    background: var(--gray-200);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress-bar-cms {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.6s ease;
+}
+
+.progress-bar-cms.success {
+    background: var(--success);
+}
+
+.progress-bar-cms.danger {
+    background: var(--danger);
+}
+
+.progress-bar-cms.warning {
+    background: var(--warning);
+}
+
+/* ===== Data Lists ===== */
+.performance-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.performance-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.performance-item:last-child {
+    border-bottom: none;
+}
+
+/* ===== Report Preview ===== */
+.report-preview {
+    background: white;
+    padding: 2rem;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.report-header {
+    text-align: center;
+    border-bottom: 2px solid var(--gray-200);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.report-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.report-table th {
+    background: var(--gray-50);
+    border-bottom: 2px solid var(--gray-200);
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+}
+
+.report-table td {
+    border-bottom: 1px solid var(--gray-100);
+    padding: 0.75rem;
+}
+
+@media print {
+
+    .sidebar,
+    .top-navbar,
+    .filter-bar,
+    .btn-cms:not(.btn-print-only) {
+        display: none !important;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        padding: 0 !important;
+    }
+
+    .report-preview {
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        max-width: 100%;
+    }
+}
+
+/* ===== Status Items (Summary) ===== */
+.status-item {
+    text-align: center;
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--gray-200);
+    transition: transform 0.2s;
+}
+
+.status-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.status-label {
+    font-size: 0.75rem;
+    color: var(--gray-500);
+    text-transform: uppercase;
+}
+
+/* ##### Utility Classes ##### */
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ===== Mobile Responsiveness ===== */
+@media (max-width: 768px) {
+    .filter-bar>div {
+        flex: 1 1 100%;
+    }
+
+    .table-responsive {
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--gray-200);
+    }
+
+    .marks-input {
+        width: 60px;
+        padding: 6px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* Quick action card adjustments */
+    .row.g-3.mb-4 .col-6 .card-cms {
+        padding: var(--space-3) !important;
+        height: 100%;
+    }
+
+    .row.g-3.mb-4 .col-6 .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+        margin-bottom: var(--space-2) !important;
+    }
+
+    .row.g-3.mb-4 .col-6 h6 {
+        font-size: var(--text-sm);
+        margin-bottom: 0 !important;
+    }
+}
+
+/* ===== Responsive Navbar Logo ===== */
+.navbar-brand-mobile {
+    display: none;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: var(--font-bold);
+    font-size: var(--text-lg);
+}
+
+.navbar-brand-mobile i {
+    width: 32px;
+    height: 32px;
+    background: var(--gradient-success);
+    color: var(--white);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-base);
+}
+
+/* Sidebar Header centering when collapsed (Global) */
+.sidebar.collapsed .sidebar-header {
+    justify-content: center;
+    padding: var(--space-4) !important;
+}
+
+@media (max-width: 992px) {
+    .navbar-brand-mobile {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin-right: 0;
+        z-index: 10;
+    }
+
+    .page-title {
+        font-size: var(--text-base);
+    }
+
+    .sidebar-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: var(--space-8) var(--space-4);
+        height: auto;
+    }
+}
+
+/* Show centered navbar logo when desktop sidebar is collapsed */
+@media (min-width: 993px) {
+    .sidebar.collapsed~.main-content .navbar-brand-mobile {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+    }
+}
+
+@media (max-width: 576px) {
+    .breadcrumb {
+        display: none;
+    }
+
+    .page-title {
+        font-size: var(--text-sm);
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .navbar-brand-mobile span {
+        display: none;
+    }
+}
