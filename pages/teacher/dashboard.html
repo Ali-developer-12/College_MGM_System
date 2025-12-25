@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/teacher.css">
 </head>
 
 <body>
@@ -75,6 +76,10 @@
             <header class="top-navbar">
                 <div class="navbar-left">
                     <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <a href="dashboard.html" class="navbar-brand-mobile">
+                        <i class="bi bi-mortarboard-fill"></i>
+                        <span>CMS</span>
+                    </a>
                     <div>
                         <h1 class="page-title">Teacher Dashboard</h1>
                         <ul class="breadcrumb">
@@ -132,34 +137,34 @@
 
                 <!-- Quick Actions -->
                 <div class="row g-3 mb-4">
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <a href="attendance.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
                             <div class="stat-icon primary mx-auto mb-3"><i class="bi bi-calendar-check"></i></div>
                             <h6 class="mb-1">Mark Attendance</h6>
-                            <small class="text-muted">Quick attendance entry</small>
+                            <small class="text-muted d-none d-md-block">Quick attendance entry</small>
                         </a>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <a href="marks-entry.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
                             <div class="stat-icon success mx-auto mb-3"><i class="bi bi-pencil-square"></i></div>
                             <h6 class="mb-1">Enter Marks</h6>
-                            <small class="text-muted">Monthly/Sessional marks</small>
+                            <small class="text-muted d-none d-md-block">Monthly/Sessional marks</small>
                         </a>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <a href="reports.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
                             <div class="stat-icon warning mx-auto mb-3"><i class="bi bi-file-earmark-bar-graph"></i>
                             </div>
                             <h6 class="mb-1">Generate Report</h6>
-                            <small class="text-muted">Class performance</small>
+                            <small class="text-muted d-none d-md-block">Class performance</small>
                         </a>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-6 col-md-3">
                         <a href="student-progress.html"
                             class="card-cms text-center p-4 hover-lift text-decoration-none">
                             <div class="stat-icon danger mx-auto mb-3"><i class="bi bi-graph-up"></i></div>
                             <h6 class="mb-1">View Analytics</h6>
-                            <small class="text-muted">Student progress</small>
+                            <small class="text-muted d-none d-md-block">Student progress</small>
                         </a>
                     </div>
                 </div>
@@ -276,34 +281,7 @@
     </div>
 
     <script src="../../js/auth.js"></script>
-    <script>
-        if (!protectPage(['teacher'])) { }
-
-        const user = getCurrentUser();
-        if (user) {
-            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-            document.getElementById('userName').textContent = user.name.split(' ').slice(0, 2).join(' ');
-            document.getElementById('navUserName').textContent = user.name;
-            document.getElementById('welcomeName').textContent = user.name.split(' ')[0] + ' ' + user.name.split(' ')[1];
-            document.getElementById('navUserRole').textContent = user.id;
-            document.querySelectorAll('#userAvatar, #navAvatar').forEach(el => el.textContent = initials);
-        }
-
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-        }
-        updateTime();
-        setInterval(updateTime, 60000);
-
-        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
-
-        document.querySelectorAll('.dropdown-cms').forEach(dropdown => {
-            dropdown.addEventListener('click', (e) => { e.stopPropagation(); dropdown.classList.toggle('show'); });
-        });
-        document.addEventListener('click', () => document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show')));
-    </script>
+    <script src="../../js/teacher.js"></script>
 </body>
 
 </html>
