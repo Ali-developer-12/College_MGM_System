@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Departments Overview - Government College of Technology, Bhakkar">
+    <title>Departments - CMS | GCT Bhakkar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/principal.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Overview</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="departments.html" class="nav-link active"><i
+                                class="bi bi-building"></i><span>Departments</span></a></div>
+                    <div class="nav-item"><a href="staff.html" class="nav-link"><i class="bi bi-people"></i><span>All
+                                Staff</span></a></div>
+                    <div class="nav-item"><a href="students.html" class="nav-link"><i
+                                class="bi bi-mortarboard"></i><span>All Students</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Analytics</p>
+                    <div class="nav-item"><a href="analytics.html" class="nav-link"><i
+                                class="bi bi-bar-chart"></i><span>Performance</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Attendance</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Administration</p>
+                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
+                                class="bi bi-megaphone"></i><span>Announcements</span></a></div>
+                    <div class="nav-item"><a href="settings.html" class="nav-link"><i
+                                class="bi bi-gear"></i><span>Settings</span></a></div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">JB</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Sir Javed Ali Bhidwal</div>
+                        <div class="sidebar-user-role">Principal</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Departments</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="navbar-notifications dropdown-cms">
+                        <button class="notification-btn"><i class="bi bi-bell"></i><span
+                                class="notification-badge">8</span></button>
+                    </div>
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Sir Javed Ali Bhidwal</div>
+                                <div class="navbar-user-role">Principal</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">JB</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Stats Overview -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary"><i class="bi bi-building"></i></div>
+                        <div class="stat-value">5</div>
+                        <div class="stat-label">Total Departments</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-mortarboard"></i></div>
+                        <div class="stat-value">1,245</div>
+                        <div class="stat-label">Total Students</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-person-workspace"></i></div>
+                        <div class="stat-value">42</div>
+                        <div class="stat-label">Total Teachers</div>
+                    </div>
+                    <div class="stat-card info">
+                        <div class="stat-icon danger"><i class="bi bi-graph-up"></i></div>
+                        <div class="stat-value">88%</div>
+                        <div class="stat-label">Avg. Pass Rate</div>
+                    </div>
+                </div>
+
+                <!-- Department Cards (Dynamically Rendered) -->
+                <div class="row g-4 mb-4" id="departmentCardsContainer">
+                    <!-- Department cards will be rendered here by JavaScript -->
+                </div>
+
+                <!-- Department Comparison Chart -->
+                <div class="card-cms">
+                    <div class="card-header">
+                        <h5 class="mb-0">Department Comparison</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="bar-chart">
+                            <div class="bar-item">
+                                <span class="bar-label">CIT</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill primary" style="width: 92%"></div>
+                                </div>
+                                <span class="bar-value">92%</span>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">Civil</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill success" style="width: 89%"></div>
+                                </div>
+                                <span class="bar-value">89%</span>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">Electrical</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill info" style="width: 87%"></div>
+                                </div>
+                                <span class="bar-value">87%</span>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">Electronics</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill warning" style="width: 85%"></div>
+                                </div>
+                                <span class="bar-value">85%</span>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">Mechanical</span>
+                                <div class="bar-wrapper">
+                                    <div class="bar-fill danger" style="width: 88%"></div>
+                                </div>
+                                <span class="bar-value">88%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/principal.js"></script>
+    <script>
+        if (!protectPage(['principal'])) { }
+        document.addEventListener('DOMContentLoaded', function () {
+            PrincipalModule.init();
+            PrincipalModule.renderDepartmentCards('departmentCardsContainer');
+            PrincipalModule.renderStats();
+        });
+    </script>
+</body>
+
+</html>

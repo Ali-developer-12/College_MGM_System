@@ -64,8 +64,9 @@ const USERS_DB = {
 
     // Principal
     'PRINCIPAL': {
-        id: 'PRINCIPAL', name: 'Dr. Muhammad Aslam', role: 'principal',
+        id: 'PRINCIPAL', name: 'Sir Javed Ali Bhidwal', role: 'principal',
         designation: 'Principal', email: 'principal@gctb.edu.pk',
+        phone: '0300-8765432',
         password: 'admin123', dashboardUrl: 'pages/principal/dashboard.html'
     },
 

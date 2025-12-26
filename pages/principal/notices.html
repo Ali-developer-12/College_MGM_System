@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Announcements - Government College of Technology, Bhakkar">
+    <title>Announcements - CMS | GCT Bhakkar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/principal.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Overview</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="departments.html" class="nav-link"><i
+                                class="bi bi-building"></i><span>Departments</span></a></div>
+                    <div class="nav-item"><a href="staff.html" class="nav-link"><i class="bi bi-people"></i><span>All
+                                Staff</span></a></div>
+                    <div class="nav-item"><a href="students.html" class="nav-link"><i
+                                class="bi bi-mortarboard"></i><span>All Students</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Analytics</p>
+                    <div class="nav-item"><a href="analytics.html" class="nav-link"><i
+                                class="bi bi-bar-chart"></i><span>Performance</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Attendance</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Administration</p>
+                    <div class="nav-item"><a href="notices.html" class="nav-link active"><i
+                                class="bi bi-megaphone"></i><span>Announcements</span></a></div>
+                    <div class="nav-item"><a href="settings.html" class="nav-link"><i
+                                class="bi bi-gear"></i><span>Settings</span></a></div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">JB</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Sir Javed Ali Bhidwal</div>
+                        <div class="sidebar-user-role">Principal</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Announcements</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="navbar-notifications dropdown-cms">
+                        <button class="notification-btn"><i class="bi bi-bell"></i><span
+                                class="notification-badge">8</span></button>
+                    </div>
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Sir Javed Ali Bhidwal</div>
+                                <div class="navbar-user-role">Principal</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">JB</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Create Announcement -->
+                <div class="card-cms mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Create New Announcement</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="announcementForm">
+                            <div class="row g-4">
+                                <div class="col-md-8">
+                                    <div class="form-group mb-4">
+                                        <label class="form-label">Title</label>
+                                        <input type="text" name="title" class="form-control form-control-cms"
+                                            placeholder="Enter announcement title..." required>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="form-label">Content</label>
+                                        <textarea name="content" class="form-control form-control-cms" rows="5"
+                                            placeholder="Write your announcement here..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-4">
+                                        <label class="form-label">Category</label>
+                                        <div class="announcement-categories">
+                                            <label class="category-chip">
+                                                <input type="radio" name="category" value="general" checked
+                                                    style="display: none;">
+                                                <i class="bi bi-info-circle me-1"></i> General
+                                            </label>
+                                            <label class="category-chip">
+                                                <input type="radio" name="category" value="academic"
+                                                    style="display: none;">
+                                                <i class="bi bi-book me-1"></i> Academic
+                                            </label>
+                                            <label class="category-chip emergency">
+                                                <input type="radio" name="category" value="urgent"
+                                                    style="display: none;">
+                                                <i class="bi bi-exclamation-triangle me-1"></i> Urgent
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-4">
+                                        <label class="form-label">Target Audience</label>
+                                        <select class="form-control form-control-cms">
+                                            <option>All</option>
+                                            <option>Students Only</option>
+                                            <option>Staff Only</option>
+                                            <option>CIT Department</option>
+                                            <option>Civil Department</option>
+                                            <option>Electrical Department</option>
+                                            <option>Electronics Department</option>
+                                            <option>Mechanical Department</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn-cms btn-primary w-100">
+                                        <i class="bi bi-megaphone"></i> Publish Announcement
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-grid mb-4">
+                    <div class="stat-card">
+                        <div class="stat-icon primary"><i class="bi bi-megaphone"></i></div>
+                        <div class="stat-value">24</div>
+                        <div class="stat-label">Total Announcements</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-check-circle"></i></div>
+                        <div class="stat-value">18</div>
+                        <div class="stat-label">Active</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-clock"></i></div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">Scheduled</div>
+                    </div>
+                    <div class="stat-card info">
+                        <div class="stat-icon danger"><i class="bi bi-exclamation-triangle"></i></div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Urgent</div>
+                    </div>
+                </div>
+
+                <!-- Announcements List -->
+                <div class="card-cms">
+                    <div class="card-header">
+                        <h5 class="mb-0">All Announcements</h5>
+                        <div class="d-flex gap-2">
+                            <select class="form-select form-select-sm" style="width: auto;">
+                                <option>All Categories</option>
+                                <option>General</option>
+                                <option>Academic</option>
+                                <option>Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-body" id="announcementsList">
+                        <div class="notice-card urgent">
+                            <div class="notice-header">
+                                <span class="notice-title"><i class="bi bi-exclamation-triangle me-2"></i>Fee Submission
+                                    Deadline</span>
+                                <span class="notice-date">Dec 23, 2024</span>
+                            </div>
+                            <div class="notice-content">
+                                Last date for fee submission is December 31, 2024. Late fee of Rs. 500 will be charged
+                                after the deadline. All students are advised to submit their fees on time to avoid any
+                                inconvenience.
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <span class="badge-cms badge-danger">Urgent</span>
+                                <span class="badge-cms badge-secondary">All Students</span>
+                            </div>
+                        </div>
+
+                        <div class="notice-card general">
+                            <div class="notice-header">
+                                <span class="notice-title">Winter Vacation Notice</span>
+                                <span class="notice-date">Dec 24, 2024</span>
+                            </div>
+                            <div class="notice-content">
+                                The college will remain closed from December 27, 2024 to January 5, 2025 for winter
+                                vacations. All pending assignments should be submitted before the vacation starts.
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <span class="badge-cms badge-primary">General</span>
+                                <span class="badge-cms badge-secondary">All</span>
+                            </div>
+                        </div>
+
+                        <div class="notice-card academic">
+                            <div class="notice-header">
+                                <span class="notice-title">Semester Exams Schedule</span>
+                                <span class="notice-date">Dec 25, 2024</span>
+                            </div>
+                            <div class="notice-content">
+                                The semester exams will commence from January 15, 2025. All students are advised to
+                                collect their roll number slips from the examination branch starting January 8, 2025.
+                                Detailed datesheet will be uploaded on the notice board.
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <span class="badge-cms badge-success">Academic</span>
+                                <span class="badge-cms badge-secondary">All Students</span>
+                            </div>
+                        </div>
+
+                        <div class="notice-card general">
+                            <div class="notice-header">
+                                <span class="notice-title">Annual Sports Day</span>
+                                <span class="notice-date">Dec 20, 2024</span>
+                            </div>
+                            <div class="notice-content">
+                                Annual Sports Day will be held on January 20, 2025. All interested students can register
+                                with their respective class teachers. Events include cricket, football, badminton, table
+                                tennis, and athletics.
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <span class="badge-cms badge-primary">General</span>
+                                <span class="badge-cms badge-secondary">All Students</span>
+                            </div>
+                        </div>
+
+                        <div class="notice-card academic">
+                            <div class="notice-header">
+                                <span class="notice-title">Project Submission Deadline Extended</span>
+                                <span class="notice-date">Dec 18, 2024</span>
+                            </div>
+                            <div class="notice-content">
+                                The deadline for final year project submissions has been extended to January 10, 2025.
+                                Students facing difficulties should consult their respective supervisors.
+                            </div>
+                            <div class="d-flex gap-2 mt-3">
+                                <span class="badge-cms badge-success">Academic</span>
+                                <span class="badge-cms badge-secondary">3rd Year</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <span class="text-muted fs-sm">Showing 5 of 24 announcements</span>
+                        <div class="d-flex gap-2">
+                            <button class="btn-cms btn-secondary btn-sm" disabled>Previous</button>
+                            <button class="btn-cms btn-primary btn-sm">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/principal.js"></script>
+    <script>
+        if (!protectPage(['principal'])) { }
+        document.addEventListener('DOMContentLoaded', function () {
+            PrincipalModule.init();
+
+            // Category chip selection
+            document.querySelectorAll('.category-chip').forEach(chip => {
+                chip.addEventListener('click', function () {
+                    document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    this.querySelector('input').checked = true;
+                });
+            });
+
+            // Form submission
+            document.getElementById('announcementForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                PrincipalModule.showToast('Announcement published successfully!', 'success');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+
+</html>

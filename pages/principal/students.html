@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Students Overview - Government College of Technology, Bhakkar">
+    <title>All Students - CMS | GCT Bhakkar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/principal.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Overview</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="departments.html" class="nav-link"><i
+                                class="bi bi-building"></i><span>Departments</span></a></div>
+                    <div class="nav-item"><a href="staff.html" class="nav-link"><i class="bi bi-people"></i><span>All
+                                Staff</span></a></div>
+                    <div class="nav-item"><a href="students.html" class="nav-link active"><i
+                                class="bi bi-mortarboard"></i><span>All Students</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Analytics</p>
+                    <div class="nav-item"><a href="analytics.html" class="nav-link"><i
+                                class="bi bi-bar-chart"></i><span>Performance</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Attendance</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Administration</p>
+                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
+                                class="bi bi-megaphone"></i><span>Announcements</span></a></div>
+                    <div class="nav-item"><a href="settings.html" class="nav-link"><i
+                                class="bi bi-gear"></i><span>Settings</span></a></div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">JB</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Sir Javed Ali Bhidwal</div>
+                        <div class="sidebar-user-role">Principal</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">All Students</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="navbar-notifications dropdown-cms">
+                        <button class="notification-btn"><i class="bi bi-bell"></i><span
+                                class="notification-badge">8</span></button>
+                    </div>
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Sir Javed Ali Bhidwal</div>
+                                <div class="navbar-user-role">Principal</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">JB</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary"><i class="bi bi-mortarboard"></i></div>
+                        <div class="stat-value">1,245</div>
+                        <div class="stat-label">Total Students</div>
+                        <div class="stat-trend up"><i class="bi bi-arrow-up"></i> +45 this month</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-sun"></i></div>
+                        <div class="stat-value">680</div>
+                        <div class="stat-label">Morning Shift</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-moon"></i></div>
+                        <div class="stat-value">565</div>
+                        <div class="stat-label">Evening Shift</div>
+                    </div>
+                    <div class="stat-card info">
+                        <div class="stat-icon danger"><i class="bi bi-trophy"></i></div>
+                        <div class="stat-value">125</div>
+                        <div class="stat-label">Top Performers</div>
+                    </div>
+                </div>
+
+                <!-- Distribution by Department -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Students by Department</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="bar-chart">
+                                    <div class="bar-item">
+                                        <span class="bar-label">Civil</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill warning" style="width: 25%"></div>
+                                        </div>
+                                        <span class="bar-value">312</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Electrical</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill success" style="width: 24%"></div>
+                                        </div>
+                                        <span class="bar-value">298</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">CIT</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill primary" style="width: 20%"></div>
+                                        </div>
+                                        <span class="bar-value">245</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Mechanical</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill danger" style="width: 16%"></div>
+                                        </div>
+                                        <span class="bar-value">204</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Electronics</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill info" style="width: 15%"></div>
+                                        </div>
+                                        <span class="bar-value">186</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card-cms h-100">
+                            <div class="card-header">
+                                <h5 class="mb-0">By Year</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                                    <span class="text-muted">1st Year (2024)</span>
+                                    <span class="fw-bold">420</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                                    <span class="text-muted">2nd Year (2023)</span>
+                                    <span class="fw-bold">410</span>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <span class="text-muted">3rd Year (2022)</span>
+                                    <span class="fw-bold">415</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter Bar -->
+                <div class="filter-bar">
+                    <div class="search-input">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="Search by name or roll number..." id="studentSearch">
+                    </div>
+                    <select id="deptFilter">
+                        <option value="all">All Departments</option>
+                        <option value="CIT">CIT</option>
+                        <option value="CIVIL">Civil</option>
+                        <option value="ELECTRICAL">Electrical</option>
+                        <option value="ELECTRONICS">Electronics</option>
+                        <option value="MECHANICAL">Mechanical</option>
+                    </select>
+                    <select id="yearFilter">
+                        <option value="all">All Years</option>
+                        <option value="2024">1st Year (2024)</option>
+                        <option value="2023">2nd Year (2023)</option>
+                        <option value="2022">3rd Year (2022)</option>
+                    </select>
+                    <select id="shiftFilter">
+                        <option value="all">All Shifts</option>
+                        <option value="morning">Morning</option>
+                        <option value="evening">Evening</option>
+                    </select>
+                </div>
+
+                <!-- Students Table -->
+                <div class="card-cms">
+                    <div class="card-header">
+                        <h5 class="mb-0">Student Directory</h5>
+                        <span class="badge-cms badge-primary">1,245 Students</span>
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table-cms">
+                            <thead>
+                                <tr>
+                                    <th>Roll No.</th>
+                                    <th>Name</th>
+                                    <th>Department</th>
+                                    <th>Year</th>
+                                    <th>Shift</th>
+                                    <th>Attendance</th>
+                                    <th>GPA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>24-CIT-101</strong></td>
+                                    <td>Muhammad Ali</td>
+                                    <td><span class="badge-cms badge-primary">CIT</span></td>
+                                    <td>1st Year</td>
+                                    <td>Evening</td>
+                                    <td><span class="badge-cms badge-success">92%</span></td>
+                                    <td><span class="fw-bold">3.8</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>24-CIT-102</strong></td>
+                                    <td>Fatima Khan</td>
+                                    <td><span class="badge-cms badge-primary">CIT</span></td>
+                                    <td>1st Year</td>
+                                    <td>Evening</td>
+                                    <td><span class="badge-cms badge-success">95%</span></td>
+                                    <td><span class="fw-bold">3.9</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>24-CIVIL-101</strong></td>
+                                    <td>Hassan Raza</td>
+                                    <td><span class="badge-cms badge-warning">CIVIL</span></td>
+                                    <td>1st Year</td>
+                                    <td>Morning</td>
+                                    <td><span class="badge-cms badge-success">88%</span></td>
+                                    <td><span class="fw-bold">3.5</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>23-ELEC-101</strong></td>
+                                    <td>Usman Tariq</td>
+                                    <td><span class="badge-cms badge-success">ELECTRICAL</span></td>
+                                    <td>2nd Year</td>
+                                    <td>Morning</td>
+                                    <td><span class="badge-cms badge-warning">75%</span></td>
+                                    <td><span class="fw-bold">3.2</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>23-ELCT-205</strong></td>
+                                    <td>Ayesha Malik</td>
+                                    <td><span class="badge-cms badge-info">ELECTRONICS</span></td>
+                                    <td>2nd Year</td>
+                                    <td>Evening</td>
+                                    <td><span class="badge-cms badge-success">90%</span></td>
+                                    <td><span class="fw-bold">3.7</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>22-MECH-108</strong></td>
+                                    <td>Bilal Ahmed</td>
+                                    <td><span class="badge-cms badge-danger">MECHANICAL</span></td>
+                                    <td>3rd Year</td>
+                                    <td>Morning</td>
+                                    <td><span class="badge-cms badge-success">85%</span></td>
+                                    <td><span class="fw-bold">3.4</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>22-CIT-110</strong></td>
+                                    <td>Sara Zafar</td>
+                                    <td><span class="badge-cms badge-primary">CIT</span></td>
+                                    <td>3rd Year</td>
+                                    <td>Evening</td>
+                                    <td><span class="badge-cms badge-success">93%</span></td>
+                                    <td><span class="fw-bold">3.9</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>24-CIVIL-215</strong></td>
+                                    <td>Ali Hassan</td>
+                                    <td><span class="badge-cms badge-warning">CIVIL</span></td>
+                                    <td>1st Year</td>
+                                    <td>Morning</td>
+                                    <td><span class="badge-cms badge-danger">65%</span></td>
+                                    <td><span class="fw-bold">2.8</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center">
+                        <span class="text-muted fs-sm">Showing 8 of 1,245 students</span>
+                        <div class="d-flex gap-2">
+                            <button class="btn-cms btn-secondary btn-sm" disabled>Previous</button>
+                            <button class="btn-cms btn-primary btn-sm">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/principal.js"></script>
+    <script>
+        if (!protectPage(['principal'])) { }
+        document.addEventListener('DOMContentLoaded', function () {
+            PrincipalModule.init();
+        });
+    </script>
+</body>
+
+</html>

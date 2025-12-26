@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Performance Analytics - Government College of Technology, Bhakkar">
+    <title>Performance Analytics - CMS | GCT Bhakkar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/principal.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Overview</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="departments.html" class="nav-link"><i
+                                class="bi bi-building"></i><span>Departments</span></a></div>
+                    <div class="nav-item"><a href="staff.html" class="nav-link"><i class="bi bi-people"></i><span>All
+                                Staff</span></a></div>
+                    <div class="nav-item"><a href="students.html" class="nav-link"><i
+                                class="bi bi-mortarboard"></i><span>All Students</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Analytics</p>
+                    <div class="nav-item"><a href="analytics.html" class="nav-link active"><i
+                                class="bi bi-bar-chart"></i><span>Performance</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Attendance</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Administration</p>
+                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
+                                class="bi bi-megaphone"></i><span>Announcements</span></a></div>
+                    <div class="nav-item"><a href="settings.html" class="nav-link"><i
+                                class="bi bi-gear"></i><span>Settings</span></a></div>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">JB</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Sir Javed Ali Bhidwal</div>
+                        <div class="sidebar-user-role">Principal</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Performance Analytics</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="navbar-notifications dropdown-cms">
+                        <button class="notification-btn"><i class="bi bi-bell"></i><span
+                                class="notification-badge">8</span></button>
+                    </div>
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Sir Javed Ali Bhidwal</div>
+                                <div class="navbar-user-role">Principal</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">JB</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Overview Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon primary"><i class="bi bi-graph-up-arrow"></i></div>
+                        <div class="stat-value">88%</div>
+                        <div class="stat-label">Overall Pass Rate</div>
+                        <div class="stat-trend up"><i class="bi bi-arrow-up"></i> +2% from last year</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-award"></i></div>
+                        <div class="stat-value">3.45</div>
+                        <div class="stat-label">Average GPA</div>
+                        <div class="stat-trend up"><i class="bi bi-arrow-up"></i> +0.08</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-calendar-check"></i></div>
+                        <div class="stat-value">85%</div>
+                        <div class="stat-label">Attendance Rate</div>
+                    </div>
+                    <div class="stat-card info">
+                        <div class="stat-icon danger"><i class="bi bi-trophy"></i></div>
+                        <div class="stat-value">125</div>
+                        <div class="stat-label">Distinction Students</div>
+                    </div>
+                </div>
+
+                <!-- Department Pass Rates -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-8">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Department Pass Rates</h5>
+                                <select class="form-select form-select-sm" style="width: auto;">
+                                    <option>2024</option>
+                                    <option>2023</option>
+                                    <option>2022</option>
+                                </select>
+                            </div>
+                            <div class="card-body">
+                                <div class="bar-chart">
+                                    <div class="bar-item">
+                                        <span class="bar-label">CIT</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill primary" style="width: 92%"></div>
+                                        </div>
+                                        <span class="bar-value">92%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Civil</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill warning" style="width: 89%"></div>
+                                        </div>
+                                        <span class="bar-value">89%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Mechanical</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill danger" style="width: 88%"></div>
+                                        </div>
+                                        <span class="bar-value">88%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Electrical</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill success" style="width: 87%"></div>
+                                        </div>
+                                        <span class="bar-value">87%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Electronics</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill info" style="width: 85%"></div>
+                                        </div>
+                                        <span class="bar-value">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card-cms h-100">
+                            <div class="card-header">
+                                <h5 class="mb-0">Year-over-Year</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-4 pb-3 border-bottom">
+                                    <div>
+                                        <div class="text-muted mb-1">2024</div>
+                                        <div class="fw-bold fs-lg text-success">88%</div>
+                                    </div>
+                                    <div class="badge-cms badge-success h-fit">+2%</div>
+                                </div>
+                                <div class="d-flex justify-content-between mb-4 pb-3 border-bottom">
+                                    <div>
+                                        <div class="text-muted mb-1">2023</div>
+                                        <div class="fw-bold fs-lg">86%</div>
+                                    </div>
+                                    <div class="badge-cms badge-success h-fit">+3%</div>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <div>
+                                        <div class="text-muted mb-1">2022</div>
+                                        <div class="fw-bold fs-lg">83%</div>
+                                    </div>
+                                    <div class="badge-cms badge-warning h-fit">+1%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GPA Distribution -->
+                <div class="row g-4 mb-4">
+                    <div class="col-lg-6">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">GPA Distribution</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="bar-chart">
+                                    <div class="bar-item">
+                                        <span class="bar-label">3.5 - 4.0</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill success" style="width: 20%"></div>
+                                        </div>
+                                        <span class="bar-value">249</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">3.0 - 3.49</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill primary" style="width: 35%"></div>
+                                        </div>
+                                        <span class="bar-value">436</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">2.5 - 2.99</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill info" style="width: 28%"></div>
+                                        </div>
+                                        <span class="bar-value">349</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">2.0 - 2.49</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill warning" style="width: 12%"></div>
+                                        </div>
+                                        <span class="bar-value">149</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Below 2.0</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill danger" style="width: 5%"></div>
+                                        </div>
+                                        <span class="bar-value">62</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Top Performers</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table-cms">
+                                    <thead>
+                                        <tr>
+                                            <th>Rank</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                            <th>GPA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="badge-cms badge-warning">1</span></td>
+                                            <td><strong>Fatima Khan</strong></td>
+                                            <td>CIT</td>
+                                            <td><span class="text-success fw-bold">3.95</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge-cms badge-secondary">2</span></td>
+                                            <td><strong>Sara Zafar</strong></td>
+                                            <td>CIT</td>
+                                            <td><span class="text-success fw-bold">3.92</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge-cms badge-secondary">3</span></td>
+                                            <td><strong>Ayesha Malik</strong></td>
+                                            <td>Electronics</td>
+                                            <td><span class="text-success fw-bold">3.88</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge-cms badge-secondary">4</span></td>
+                                            <td><strong>Muhammad Ali</strong></td>
+                                            <td>CIT</td>
+                                            <td><span class="text-success fw-bold">3.85</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="badge-cms badge-secondary">5</span></td>
+                                            <td><strong>Hassan Raza</strong></td>
+                                            <td>Civil</td>
+                                            <td><span class="text-success fw-bold">3.82</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subject Performance -->
+                <div class="card-cms">
+                    <div class="card-header">
+                        <h5 class="mb-0">Subject-wise Performance (Avg. Marks)</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h6 class="mb-3">CIT Department</h6>
+                                <div class="bar-chart">
+                                    <div class="bar-item">
+                                        <span class="bar-label">Programming</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill primary" style="width: 78%"></div>
+                                        </div>
+                                        <span class="bar-value">78%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Web Dev</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill primary" style="width: 82%"></div>
+                                        </div>
+                                        <span class="bar-value">82%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Database</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill primary" style="width: 75%"></div>
+                                        </div>
+                                        <span class="bar-value">75%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="mb-3">Civil Department</h6>
+                                <div class="bar-chart">
+                                    <div class="bar-item">
+                                        <span class="bar-label">Surveying</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill warning" style="width: 80%"></div>
+                                        </div>
+                                        <span class="bar-value">80%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">Structures</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill warning" style="width: 72%"></div>
+                                        </div>
+                                        <span class="bar-value">72%</span>
+                                    </div>
+                                    <div class="bar-item">
+                                        <span class="bar-label">AutoCAD</span>
+                                        <div class="bar-wrapper">
+                                            <div class="bar-fill warning" style="width: 85%"></div>
+                                        </div>
+                                        <span class="bar-value">85%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/principal.js"></script>
+    <script>
+        if (!protectPage(['principal'])) { }
+        document.addEventListener('DOMContentLoaded', function () {
+            PrincipalModule.init();
+        });
+    </script>
+</body>
+
+</html>

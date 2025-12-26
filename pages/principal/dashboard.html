@@ -4,18 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Principal Dashboard - Government College of Technology, Bhakkar">
     <title>Principal Dashboard - CMS | GCT Bhakkar</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/principal.css">
 </head>
 
 <body>
     <div class="dashboard-layout">
+        <!-- Sidebar -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
@@ -24,96 +36,175 @@
                     <p>GCT Bhakkar</p>
                 </div>
             </div>
+
             <nav class="sidebar-nav">
                 <div class="nav-section">
                     <p class="nav-section-title">Overview</p>
-                    <div class="nav-item"><a href="dashboard.html" class="nav-link active"><i
-                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
-                    <div class="nav-item"><a href="departments.html" class="nav-link"><i
-                                class="bi bi-building"></i><span>Departments</span></a></div>
-                    <div class="nav-item"><a href="staff.html" class="nav-link"><i class="bi bi-people"></i><span>All
-                                Staff</span></a></div>
-                    <div class="nav-item"><a href="students.html" class="nav-link"><i
-                                class="bi bi-mortarboard"></i><span>All Students</span></a></div>
+                    <div class="nav-item">
+                        <a href="dashboard.html" class="nav-link active">
+                            <i class="bi bi-grid-1x2-fill"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="departments.html" class="nav-link">
+                            <i class="bi bi-building"></i>
+                            <span>Departments</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="staff.html" class="nav-link">
+                            <i class="bi bi-people"></i>
+                            <span>All Staff</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="students.html" class="nav-link">
+                            <i class="bi bi-mortarboard"></i>
+                            <span>All Students</span>
+                        </a>
+                    </div>
                 </div>
+
                 <div class="nav-section">
                     <p class="nav-section-title">Analytics</p>
-                    <div class="nav-item"><a href="analytics.html" class="nav-link"><i
-                                class="bi bi-bar-chart"></i><span>Performance</span></a></div>
-                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
-                                class="bi bi-calendar-check"></i><span>Attendance</span></a></div>
-                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
-                                class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a></div>
+                    <div class="nav-item">
+                        <a href="analytics.html" class="nav-link">
+                            <i class="bi bi-bar-chart"></i>
+                            <span>Performance</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="attendance.html" class="nav-link">
+                            <i class="bi bi-calendar-check"></i>
+                            <span>Attendance</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="reports.html" class="nav-link">
+                            <i class="bi bi-file-earmark-bar-graph"></i>
+                            <span>Reports</span>
+                        </a>
+                    </div>
                 </div>
+
                 <div class="nav-section">
                     <p class="nav-section-title">Administration</p>
-                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
-                                class="bi bi-megaphone"></i><span>Announcements</span></a></div>
-                    <div class="nav-item"><a href="settings.html" class="nav-link"><i
-                                class="bi bi-gear"></i><span>Settings</span></a></div>
+                    <div class="nav-item">
+                        <a href="notices.html" class="nav-link">
+                            <i class="bi bi-megaphone"></i>
+                            <span>Announcements</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="settings.html" class="nav-link">
+                            <i class="bi bi-gear"></i>
+                            <span>Settings</span>
+                        </a>
+                    </div>
                 </div>
             </nav>
+
             <div class="sidebar-footer">
                 <div class="sidebar-user">
-                    <div class="avatar avatar-md" id="userAvatar">MA</div>
+                    <div class="avatar avatar-md" id="userAvatar">JB</div>
                     <div class="sidebar-user-info">
-                        <div class="sidebar-user-name" id="userName">Dr. Muhammad Aslam</div>
+                        <div class="sidebar-user-name" id="userName">Sir Javed Ali Bhidwal</div>
                         <div class="sidebar-user-role">Principal</div>
                     </div>
                 </div>
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
+            <!-- Top Navbar -->
             <header class="top-navbar">
                 <div class="navbar-left">
-                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="bi bi-list"></i>
+                    </button>
                     <div>
                         <h1 class="page-title">Principal Dashboard</h1>
                     </div>
                 </div>
+
                 <div class="navbar-right">
                     <div class="navbar-notifications dropdown-cms">
-                        <button class="notification-btn"><i class="bi bi-bell"></i><span
-                                class="notification-badge">8</span></button>
+                        <button class="notification-btn">
+                            <i class="bi bi-bell"></i>
+                            <span class="notification-badge">8</span>
+                        </button>
                     </div>
+
                     <div class="dropdown-cms">
                         <div class="navbar-user">
                             <div class="navbar-user-info">
-                                <div class="navbar-user-name" id="navUserName">Dr. Muhammad Aslam</div>
+                                <div class="navbar-user-name" id="navUserName">Sir Javed Ali Bhidwal</div>
                                 <div class="navbar-user-role">Principal</div>
                             </div>
-                            <div class="avatar avatar-md" id="navAvatar">MA</div>
+                            <div class="avatar avatar-md" id="navAvatar">JB</div>
                         </div>
                         <div class="dropdown-menu-cms">
-                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
-                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                            <a href="settings.html" class="dropdown-item-cms">
+                                <i class="bi bi-person"></i>
+                                <span>Profile</span>
+                            </a>
+                            <a href="settings.html" class="dropdown-item-cms">
+                                <i class="bi bi-gear"></i>
+                                <span>Settings</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Logout</span>
+                            </a>
                         </div>
                     </div>
                 </div>
             </header>
 
+            <!-- Page Content -->
             <div class="page-content">
-                <!-- Welcome -->
-                <div class="card-cms mb-4"
-                    style="background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%); color: white;">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-md-8">
-                                <h3 class="text-white mb-2">Welcome, <span id="welcomeName">Dr. Muhammad Aslam</span>!
-                                    👋</h3>
-                                <p class="mb-0 opacity-75">Government College of Technology, Bhakkar - Complete Overview
-                                </p>
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <div class="content">
+                                <h2>Welcome back, <span id="welcomeName">Sir Javed Ali Bhidwal</span>! 👋</h2>
+                                <p>Government College of Technology, Bhakkar - Complete Administrative Overview</p>
                             </div>
-                            <div class="col-md-4 text-end d-none d-md-block">
-                                <div class="fs-sm opacity-75" id="currentDate"></div>
-                                <div class="fs-lg fw-bold" id="currentTime"></div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="datetime">
+                                <div class="date" id="currentDate"></div>
+                                <div class="time" id="currentTime"></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Stats -->
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <a href="notices.html" class="quick-action-btn">
+                        <i class="bi bi-megaphone"></i>
+                        <span>New Announcement</span>
+                    </a>
+                    <a href="reports.html" class="quick-action-btn">
+                        <i class="bi bi-file-earmark-text"></i>
+                        <span>Generate Report</span>
+                    </a>
+                    <a href="attendance.html" class="quick-action-btn">
+                        <i class="bi bi-calendar-check"></i>
+                        <span>View Attendance</span>
+                    </a>
+                    <a href="staff.html" class="quick-action-btn">
+                        <i class="bi bi-people"></i>
+                        <span>Manage Staff</span>
+                    </a>
+                </div>
+
+                <!-- Statistics Cards -->
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-icon primary"><i class="bi bi-mortarboard"></i></div>
@@ -125,6 +216,7 @@
                         <div class="stat-icon success"><i class="bi bi-person-workspace"></i></div>
                         <div class="stat-value">42</div>
                         <div class="stat-label">Teaching Staff</div>
+                        <div class="stat-trend up"><i class="bi bi-arrow-up"></i> +2 new</div>
                     </div>
                     <div class="stat-card warning">
                         <div class="stat-icon warning"><i class="bi bi-building"></i></div>
@@ -135,91 +227,176 @@
                         <div class="stat-icon danger"><i class="bi bi-graph-up"></i></div>
                         <div class="stat-value">85%</div>
                         <div class="stat-label">Overall Attendance</div>
+                        <div class="stat-trend up"><i class="bi bi-arrow-up"></i> +3% this week</div>
                     </div>
                 </div>
 
-                <!-- Departments Overview -->
-                <div class="row g-4 mt-2">
+                <!-- Main Content Grid -->
+                <div class="row g-4">
+                    <!-- Department Performance -->
                     <div class="col-lg-8">
                         <div class="card-cms">
                             <div class="card-header">
                                 <h5 class="mb-0">Department Performance</h5>
+                                <a href="departments.html" class="btn-cms btn-sm btn-outline">View All</a>
                             </div>
                             <div class="card-body p-0">
                                 <table class="table-cms">
                                     <thead>
                                         <tr>
                                             <th>Department</th>
+                                            <th>HOD</th>
                                             <th>Students</th>
                                             <th>Teachers</th>
                                             <th>Attendance</th>
                                             <th>Pass Rate</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>CIT</strong></td>
-                                            <td>245</td>
-                                            <td>8</td>
-                                            <td><span class="badge-cms badge-success">88%</span></td>
-                                            <td><span class="badge-cms badge-success">92%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Civil</strong></td>
-                                            <td>312</td>
-                                            <td>10</td>
-                                            <td><span class="badge-cms badge-success">85%</span></td>
-                                            <td><span class="badge-cms badge-success">89%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Electrical</strong></td>
-                                            <td>298</td>
-                                            <td>9</td>
-                                            <td><span class="badge-cms badge-success">82%</span></td>
-                                            <td><span class="badge-cms badge-success">87%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Electronics</strong></td>
-                                            <td>186</td>
-                                            <td>7</td>
-                                            <td><span class="badge-cms badge-warning">78%</span></td>
-                                            <td><span class="badge-cms badge-success">85%</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Mechanical</strong></td>
-                                            <td>204</td>
-                                            <td>8</td>
-                                            <td><span class="badge-cms badge-success">84%</span></td>
-                                            <td><span class="badge-cms badge-success">88%</span></td>
-                                        </tr>
+                                    <tbody id="departmentTableBody">
+                                        <!-- Department rows will be rendered by JavaScript -->
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Quick Stats & Activity -->
                     <div class="col-lg-4">
-                        <div class="card-cms">
+                        <!-- Quick Stats -->
+                        <div class="card-cms mb-4">
                             <div class="card-header">
                                 <h5 class="mb-0">Quick Stats</h5>
                             </div>
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
-                                    <span class="text-muted">Classes Today</span><span class="fw-bold">48</span>
+                                    <span class="text-muted">Classes Today</span>
+                                    <span class="fw-bold">48</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
-                                    <span class="text-muted">Absent Students</span><span
-                                        class="fw-bold text-danger">156</span>
+                                    <span class="text-muted">Absent Students</span>
+                                    <span class="fw-bold text-danger">156</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
-                                    <span class="text-muted">Pending Fees</span><span class="fw-bold text-warning">Rs.
-                                        2.4M</span>
+                                    <span class="text-muted">Pending Fees</span>
+                                    <span class="fw-bold text-warning">Rs. 2.4M</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
-                                    <span class="text-muted">Library Books</span><span class="fw-bold">12,450</span>
+                                    <span class="text-muted">Library Books</span>
+                                    <span class="fw-bold">12,450</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                                    <span class="text-muted">Transport Buses</span>
+                                    <span class="fw-bold">8</span>
                                 </div>
                                 <div class="d-flex justify-content-between">
-                                    <span class="text-muted">Transport Buses</span><span class="fw-bold">8</span>
+                                    <span class="text-muted">Pending Approvals</span>
+                                    <span class="fw-bold text-primary">12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Row -->
+                <div class="row g-4 mt-2">
+                    <!-- Recent Activity -->
+                    <div class="col-lg-6">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Recent Activity</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="activity-feed" id="activityFeed">
+                                    <li class="activity-item">
+                                        <div class="activity-icon attendance">
+                                            <i class="bi bi-calendar-check"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Daily attendance marked for CIT Department</div>
+                                            <div class="activity-time">10 minutes ago</div>
+                                        </div>
+                                    </li>
+                                    <li class="activity-item">
+                                        <div class="activity-icon notice">
+                                            <i class="bi bi-megaphone"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">New exam schedule uploaded for semester exams
+                                            </div>
+                                            <div class="activity-time">1 hour ago</div>
+                                        </div>
+                                    </li>
+                                    <li class="activity-item">
+                                        <div class="activity-icon approval">
+                                            <i class="bi bi-check-circle"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Leave request approved for Mr. Ahmed Khan</div>
+                                            <div class="activity-time">2 hours ago</div>
+                                        </div>
+                                    </li>
+                                    <li class="activity-item">
+                                        <div class="activity-icon event">
+                                            <i class="bi bi-calendar-event"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Annual sports day scheduled for next week</div>
+                                            <div class="activity-time">3 hours ago</div>
+                                        </div>
+                                    </li>
+                                    <li class="activity-item">
+                                        <div class="activity-icon attendance">
+                                            <i class="bi bi-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">Low attendance alert for Electronics Dept.</div>
+                                            <div class="activity-time">4 hours ago</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Announcements -->
+                    <div class="col-lg-6">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Recent Announcements</h5>
+                                <a href="notices.html" class="btn-cms btn-sm btn-primary">
+                                    <i class="bi bi-plus"></i> New
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <div class="notice-card urgent">
+                                    <div class="notice-header">
+                                        <span class="notice-title">Fee Submission Deadline</span>
+                                        <span class="notice-date">Dec 23, 2024</span>
+                                    </div>
+                                    <div class="notice-content">
+                                        Last date for fee submission is December 31, 2024. Late fee will be charged
+                                        after the deadline.
+                                    </div>
+                                </div>
+                                <div class="notice-card general">
+                                    <div class="notice-header">
+                                        <span class="notice-title">Winter Vacation Notice</span>
+                                        <span class="notice-date">Dec 24, 2024</span>
+                                    </div>
+                                    <div class="notice-content">
+                                        The college will remain closed from December 27 to January 5 for winter
+                                        vacations.
+                                    </div>
+                                </div>
+                                <div class="notice-card academic">
+                                    <div class="notice-header">
+                                        <span class="notice-title">Semester Exams Schedule</span>
+                                        <span class="notice-date">Dec 25, 2024</span>
+                                    </div>
+                                    <div class="notice-content">
+                                        The semester exams will commence from January 15, 2025. All students are advised
+                                        to collect their roll number slips.
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -229,24 +406,19 @@
         </main>
     </div>
 
+    <!-- Scripts -->
     <script src="../../js/auth.js"></script>
+    <script src="../../js/principal.js"></script>
     <script>
+        // Protect page - only principal can access
         if (!protectPage(['principal'])) { }
-        const user = getCurrentUser();
-        if (user) {
-            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
-            document.querySelectorAll('#userName, #navUserName, #welcomeName').forEach(el => el.textContent = user.name);
-            document.querySelectorAll('#userAvatar, #navAvatar').forEach(el => el.textContent = initials);
-        }
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('currentDate').textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' });
-            document.getElementById('currentTime').textContent = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
-        }
-        updateTime(); setInterval(updateTime, 60000);
-        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
-        document.querySelectorAll('.dropdown-cms').forEach(d => d.addEventListener('click', e => { e.stopPropagation(); d.classList.toggle('show'); }));
-        document.addEventListener('click', () => document.querySelectorAll('.dropdown-cms').forEach(d => d.classList.remove('show')));
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function () {
+            PrincipalModule.init();
+            PrincipalModule.renderDepartmentTable('departmentTableBody');
+            PrincipalModule.renderStats();
+        });
     </script>
 </body>
 
