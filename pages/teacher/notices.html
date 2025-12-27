@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notice Board - Teacher | CMS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+    <link rel="stylesheet" href="../../css/teacher.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Main Menu</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="attendance.html" class="nav-link"><i
+                                class="bi bi-calendar-check"></i><span>Mark Attendance</span></a></div>
+                    <div class="nav-item"><a href="marks-entry.html" class="nav-link"><i
+                                class="bi bi-pencil-square"></i><span>Marks Entry</span></a></div>
+                    <div class="nav-item"><a href="my-classes.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>My Classes</span></a></div>
+                </div>
+
+                <div class="nav-section">
+                    <p class="nav-section-title">Analytics</p>
+                    <div class="nav-item"><a href="student-progress.html" class="nav-link"><i
+                                class="bi bi-graph-up"></i><span>Student Progress</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-earmark-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">SM</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Teacher</div>
+                        <div class="sidebar-user-role">CIT Department</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <a href="dashboard.html" class="navbar-brand-mobile">
+                        <i class="bi bi-mortarboard-fill"></i>
+                        <span>CMS</span>
+                    </a>
+                    <div>
+                        <h1 class="page-title">Notice Board</h1>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Notices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <a href="notices.html" class="btn-cms btn-ghost btn-sm p-2 me-2" title="Notices">
+                        <i class="bi bi-megaphone-fill fs-5"></i>
+                    </a>
+                    <div class="navbar-notifications dropdown-cms">
+                        <button class="notification-btn"><i class="bi bi-bell"></i><span
+                                class="notification-badge">2</span></button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h6>Notifications</h6>
+                                <a href="#" class="text-xs">Mark all as read</a>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item unread">
+                                    <div class="avatar avatar-sm bg-primary-light text-primary">UA</div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Usman Ahmed's attendance is low</p>
+                                        <p class="notification-text">Attendance dropped below 75% in Programming.</p>
+                                        <span class="notification-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification-footer">
+                                <a href="notices.html">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dropdown-cms" id="userDropdown">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Teacher</div>
+                                <div class="navbar-user-role" id="navUserRole">T-CIT-001</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">SM</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="card-cms">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">All Notices</h5>
+                                <div class="d-flex gap-2">
+                                    <button class="btn-cms btn-outline-secondary btn-sm">Filter</button>
+                                    <button class="btn-cms btn-primary btn-sm">Search</button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div class="notice-list">
+                                    <div class="notice-item-cms p-4 border-bottom">
+                                        <div class="d-flex gap-4">
+                                            <div class="notice-date">
+                                                <span class="day">28</span>
+                                                <span class="month">Dec</span>
+                                            </div>
+                                            <div class="notice-content">
+                                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                                    <h6 class="mb-0 fs-5">Exam Paper Submission Deadline</h6>
+                                                    <span class="badge-cms badge-danger">Urgent</span>
+                                                </div>
+                                                <p class="text-muted mb-3">All teachers are requested to submit the
+                                                    final sessional papers by tomorrow evening. Late submissions will
+                                                    not be accepted as the results need to be finalized by the weekend.
+                                                </p>
+                                                <div class="d-flex align-items-center gap-3 text-xs text-muted">
+                                                    <span><i class="bi bi-person me-1"></i> Admin</span>
+                                                    <span><i class="bi bi-clock me-1"></i> 10:30 AM</span>
+                                                    <span><i class="bi bi-paperclip me-1"></i> 1 Attachment</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="notice-item-cms p-4 border-bottom">
+                                        <div class="d-flex gap-4">
+                                            <div class="notice-date">
+                                                <span class="day">25</span>
+                                                <span class="month">Dec</span>
+                                            </div>
+                                            <div class="notice-content">
+                                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                                    <h6 class="mb-0 fs-5">Winter Vacation Schedule</h6>
+                                                    <span class="badge-cms badge-info">General</span>
+                                                </div>
+                                                <p class="text-muted mb-3">The college will remain closed from December
+                                                    24th to January 1st for winter break. Classes will resume on January
+                                                    2nd, 2026. Staff is requested to ensure all lab equipment is
+                                                    properly powered off.</p>
+                                                <div class="d-flex align-items-center gap-3 text-xs text-muted">
+                                                    <span><i class="bi bi-person me-1"></i> Principal Office</span>
+                                                    <span><i class="bi bi-clock me-1"></i> 02:15 PM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="notice-item-cms p-4 border-bottom">
+                                        <div class="d-flex gap-4">
+                                            <div class="notice-date">
+                                                <span class="day">20</span>
+                                                <span class="month">Dec</span>
+                                            </div>
+                                            <div class="notice-content">
+                                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                                    <h6 class="mb-0 fs-5">Faculty Meeting</h6>
+                                                    <span class="badge-cms badge-warning">Meeting</span>
+                                                </div>
+                                                <p class="text-muted mb-3">A meeting of all CIT department faculty
+                                                    members will be held in the Principal's office at 10:00 AM regarding
+                                                    the upcoming semester planning and curriculum updates.</p>
+                                                <div class="d-flex align-items-center gap-3 text-xs text-muted">
+                                                    <span><i class="bi bi-person me-1"></i> HOD CIT</span>
+                                                    <span><i class="bi bi-clock me-1"></i> 09:00 AM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="notice-item-cms p-4">
+                                        <div class="d-flex gap-4">
+                                            <div class="notice-date">
+                                                <span class="day">15</span>
+                                                <span class="month">Dec</span>
+                                            </div>
+                                            <div class="notice-content">
+                                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                                    <h6 class="mb-0 fs-5">Sports Week Participation</h6>
+                                                    <span class="badge-cms badge-success">Activity</span>
+                                                </div>
+                                                <p class="text-muted mb-3">Faculty members interested in organizing or
+                                                    participating in the upcoming Sports Week events are requested to
+                                                    submit their names to the sports coordinator.</p>
+                                                <div class="d-flex align-items-center gap-3 text-xs text-muted">
+                                                    <span><i class="bi bi-person me-1"></i> Sports Coordinator</span>
+                                                    <span><i class="bi bi-clock me-1"></i> 11:45 AM</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white py-3">
+                                <nav>
+                                    <ul class="pagination pagination-cms mb-0 justify-content-center">
+                                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/teacher.js"></script>
+</body>
+
+</html>

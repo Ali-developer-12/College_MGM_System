@@ -90,11 +90,55 @@
                 </div>
 
                 <div class="navbar-right">
+                    <a href="notices.html" class="btn-cms btn-ghost btn-sm p-2 me-2" title="Notices">
+                        <i class="bi bi-megaphone-fill fs-5"></i>
+                    </a>
                     <div class="navbar-search"><i class="bi bi-search"></i><input type="text"
                             placeholder="Search students..."></div>
                     <div class="navbar-notifications dropdown-cms">
                         <button class="notification-btn"><i class="bi bi-bell"></i><span
                                 class="notification-badge">2</span></button>
+                        <div class="notification-dropdown">
+                            <div class="notification-header">
+                                <h6>Notifications</h6>
+                                <a href="#" class="text-xs">Mark all as read</a>
+                            </div>
+                            <div class="notification-list">
+                                <div class="notification-item unread">
+                                    <div class="avatar avatar-sm bg-primary-light text-primary">UA</div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Usman Ahmed's attendance is low</p>
+                                        <p class="notification-text">Attendance dropped below 75% in Programming.</p>
+                                        <span class="notification-time">2 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item unread">
+                                    <div class="avatar avatar-sm bg-success-light text-success">
+                                        <i class="bi bi-file-earmark-check"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">Marks Submitted Successfully</p>
+                                        <p class="notification-text">Monthly assessment marks for CIT-A have been saved.
+                                        </p>
+                                        <span class="notification-time">5 hours ago</span>
+                                    </div>
+                                </div>
+                                <div class="notification-item">
+                                    <div class="avatar avatar-sm bg-info-light text-info">
+                                        <i class="bi bi-info-circle"></i>
+                                    </div>
+                                    <div class="notification-content">
+                                        <p class="notification-title">New Notice Published</p>
+                                        <p class="notification-text">Check the notice board for winter vacation updates.
+                                        </p>
+                                        <span class="notification-time">1 day ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="notification-footer">
+                                <a href="notices.html">View all notifications</a>
+                            </div>
+                        </div>
                     </div>
                     <div class="dropdown-cms" id="userDropdown">
                         <div class="navbar-user">
@@ -105,11 +149,11 @@
                             <div class="avatar avatar-md" id="navAvatar">SM</div>
                         </div>
                         <div class="dropdown-menu-cms">
-                            <a href="profile.html" class="dropdown-item-cms"><i class="bi bi-person"></i><span>My
-                                    Profile</span></a>
-                            <div class="dropdown-divider"></div>
+                            <a href="profile.html" class="dropdown-item-cms"><i class="bi bi-person"></i>My Profile</a>
+                            <a href="#" class="dropdown-item-cms"><i class="bi bi-gear"></i>Settings</a>
+                            <div class="dropdown-divider-cms"></div>
                             <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
-                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                                    class="bi bi-box-arrow-right"></i>Logout</a>
                         </div>
                     </div>
                 </div>
@@ -135,38 +179,24 @@
                     </div>
                 </div>
 
-                <!-- Quick Actions -->
-                <div class="row g-3 mb-4">
-                    <div class="col-6 col-md-3">
-                        <a href="attendance.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
-                            <div class="stat-icon primary mx-auto mb-3"><i class="bi bi-calendar-check"></i></div>
-                            <h6 class="mb-1">Mark Attendance</h6>
-                            <small class="text-muted d-none d-md-block">Quick attendance entry</small>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <a href="marks-entry.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
-                            <div class="stat-icon success mx-auto mb-3"><i class="bi bi-pencil-square"></i></div>
-                            <h6 class="mb-1">Enter Marks</h6>
-                            <small class="text-muted d-none d-md-block">Monthly/Sessional marks</small>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <a href="reports.html" class="card-cms text-center p-4 hover-lift text-decoration-none">
-                            <div class="stat-icon warning mx-auto mb-3"><i class="bi bi-file-earmark-bar-graph"></i>
-                            </div>
-                            <h6 class="mb-1">Generate Report</h6>
-                            <small class="text-muted d-none d-md-block">Class performance</small>
-                        </a>
-                    </div>
-                    <div class="col-6 col-md-3">
-                        <a href="student-progress.html"
-                            class="card-cms text-center p-4 hover-lift text-decoration-none">
-                            <div class="stat-icon danger mx-auto mb-3"><i class="bi bi-graph-up"></i></div>
-                            <h6 class="mb-1">View Analytics</h6>
-                            <small class="text-muted d-none d-md-block">Student progress</small>
-                        </a>
-                    </div>
+                <!-- Quick Actions Minimal -->
+                <div class="quick-actions-minimal">
+                    <a href="attendance.html" class="action-item-minimal success">
+                        <div class="action-icon-box"><i class="bi bi-calendar-check"></i></div>
+                        <h6>Attendance</h6>
+                    </a>
+                    <a href="marks-entry.html" class="action-item-minimal primary">
+                        <div class="action-icon-box"><i class="bi bi-pencil-square"></i></div>
+                        <h6>Marks Entry</h6>
+                    </a>
+                    <a href="reports.html" class="action-item-minimal warning">
+                        <div class="action-icon-box"><i class="bi bi-file-earmark-bar-graph"></i></div>
+                        <h6>Reports</h6>
+                    </a>
+                    <a href="student-progress.html" class="action-item-minimal danger">
+                        <div class="action-icon-box"><i class="bi bi-graph-up"></i></div>
+                        <h6>Analytics</h6>
+                    </a>
                 </div>
 
                 <!-- Stats -->
@@ -202,41 +232,43 @@
                                 <span class="badge-cms badge-primary">3 Classes</span>
                             </div>
                             <div class="card-body p-0">
-                                <table class="table-cms">
-                                    <thead>
-                                        <tr>
-                                            <th>Time</th>
-                                            <th>Subject</th>
-                                            <th>Class</th>
-                                            <th>Room</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>09:00 AM</strong></td>
-                                            <td>Programming Fundamentals</td>
-                                            <td>1st Year CIT-A</td>
-                                            <td>Lab 3</td>
-                                            <td><span class="badge-cms badge-success">Completed</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>11:00 AM</strong></td>
-                                            <td>Database Systems</td>
-                                            <td>2nd Year CIT-A</td>
-                                            <td>Room 12</td>
-                                            <td><a href="attendance.html" class="btn-cms btn-primary btn-sm">Mark
-                                                    Attendance</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>02:00 PM</strong></td>
-                                            <td>Web Development</td>
-                                            <td>1st Year CIT-B</td>
-                                            <td>Lab 2</td>
-                                            <td><span class="badge-cms badge-secondary">Upcoming</span></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-responsive">
+                                    <table class="table-cms">
+                                        <thead>
+                                            <tr>
+                                                <th>Time</th>
+                                                <th>Subject</th>
+                                                <th>Class</th>
+                                                <th>Room</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>09:00 AM</strong></td>
+                                                <td>Programming Fundamentals</td>
+                                                <td>1st Year CIT-A</td>
+                                                <td>Lab 3</td>
+                                                <td><span class="badge-cms badge-success">Completed</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>11:00 AM</strong></td>
+                                                <td>Database Systems</td>
+                                                <td>2nd Year CIT-A</td>
+                                                <td>Room 12</td>
+                                                <td><a href="attendance.html" class="btn-cms btn-primary btn-sm">Mark
+                                                        Attendance</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>02:00 PM</strong></td>
+                                                <td>Web Development</td>
+                                                <td>1st Year CIT-B</td>
+                                                <td>Lab 2</td>
+                                                <td><span class="badge-cms badge-secondary">Upcoming</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -271,6 +303,54 @@
                                         <small class="text-muted">24-CIT-112 • Web Dev</small>
                                     </div>
                                     <span class="badge-cms badge-warning">73%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Notice Board -->
+                <div class="card-cms mt-4 animate-fade-in">
+                    <div class="card-header">
+                        <h5 class="mb-0">Notice Board</h5>
+                        <a href="notices.html" class="btn-cms btn-ghost btn-sm">View All</a>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="notice-list">
+                            <div class="notice-item-cms">
+                                <div class="notice-date">
+                                    <span class="day">28</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="notice-content">
+                                    <h6>Exam Paper Submission Deadline</h6>
+                                    <p>All teachers are requested to submit the final sessional papers by tomorrow
+                                        evening.</p>
+                                    <span class="badge-cms badge-danger">Urgent</span>
+                                </div>
+                            </div>
+                            <div class="notice-item-cms">
+                                <div class="notice-date">
+                                    <span class="day">25</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="notice-content">
+                                    <h6>Winter Vacation Schedule</h6>
+                                    <p>The college will remain closed from December 24th to January 1st for winter
+                                        break.</p>
+                                    <span class="badge-cms badge-info">General</span>
+                                </div>
+                            </div>
+                            <div class="notice-item-cms">
+                                <div class="notice-date">
+                                    <span class="day">20</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="notice-content">
+                                    <h6>Faculty Meeting</h6>
+                                    <p>A meeting of all CIT department faculty members will be held in the Principal's
+                                        office at 10:00 AM.</p>
+                                    <span class="badge-cms badge-warning">Meeting</span>
                                 </div>
                             </div>
                         </div>
