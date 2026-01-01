@@ -1,0 +1,51 @@
+:root{
+    --primary:#1f2937;
+    --accent:#10b981;
+    --muted:#6b7280;
+}
+body{
+    background:#f3f4f6;
+    font-family:"Segoe UI",sans-serif;
+}
+.card{
+    border:none;
+    border-radius:16px;
+}
+.header-bar{
+    background:#ffedd5;   /* light orange */
+    border-radius:16px;
+    padding:20px;
+    color:#000;           /* black text */
+}
+
+.stat{
+    font-size:14px;
+    color:var(--muted);
+}
+.stat span{
+    font-size:26px;
+    font-weight:700;
+    color:var(--primary);
+}
+.btn-accent{
+    background:var(--accent);
+    color:#fff;
+}
+.btn-accent:hover{
+    background:#059669;
+    color:#fff;
+}
+.table thead{
+    background:var(--primary);
+    color:#fff;
+}
+.badge-active{background:#10b981}
+.badge-inactive{background:#ef4444}
+.modal-header{
+    background:var(--primary);
+    color:#fff;
+}
+.form-label{
+    font-weight:600;
+    font-size:14px;
+}

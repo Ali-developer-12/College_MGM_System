@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Clerk Profile</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/clerk/profile.css">
+</head>
+
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold mb-4">Clerk Profile</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <!-- Profile Card -->
+            <div class="card shadow profile-card">
+                <div class="card-header bg-primary text-white fw-bold">
+                    Clerk Information
+                </div>
+
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-4 text-center">
+                            <img id="profilePic" src="https://via.placeholder.com/150" class="profile-img mb-3">
+                            <input type="file" id="photo" class="form-control" accept="image/*">
+                        </div>
+
+                        <div class="col-md-8">
+                            <form id="profileForm">
+                                <div class="mb-2">
+                                    <label class="form-label">Full Name</label>
+                                    <input type="text" id="name" class="form-control" value="Ali Khan" required>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Clerk ID</label>
+                                    <input type="text" class="form-control" value="CLK-101" disabled>
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" id="email" class="form-control" value="clerk@college.edu">
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Phone</label>
+                                    <input type="text" id="phone" class="form-control" value="0300-1234567">
+                                </div>
+
+                                <div class="mb-2">
+                                    <label class="form-label">Address</label>
+                                    <textarea id="address" class="form-control">College Road, City</textarea>
+                                </div>
+
+                                <div class="text-end mt-3">
+                                    <button class="btn btn-success px-4">Update Profile</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script src="/js/clerk/profile.js">
+
+</script>
+
+</body>
+</html>
