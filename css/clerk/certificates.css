@@ -1,7 +1,7 @@
 body { background:#f4f6f9; }
 
     .certificate {
-        border: 5px solid #000;
+        border: 5px solid #100f0f;
         padding: 40px;
         background: #fff;
         max-width: 900px;
@@ -35,7 +35,7 @@ body { background:#f4f6f9; }
         .certificate {
             position: absolute;
             top: 0;
-            left: 0;
+            left: 0cla;
             width: 100%;
         }
     }
