@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Library Fines - Library Management System">
+    <title>Fines - Library | CMS GCT Bhakkar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Library</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="books.html" class="nav-link"><i
+                                class="bi bi-book"></i><span>Books</span></a></div>
+                    <div class="nav-item"><a href="issues.html" class="nav-link"><i
+                                class="bi bi-journal-arrow-up"></i><span>Issue Book</span></a></div>
+                    <div class="nav-item"><a href="returns.html" class="nav-link"><i
+                                class="bi bi-journal-arrow-down"></i><span>Returns</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Management</p>
+                    <div class="nav-item"><a href="members.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>Members</span></a></div>
+                    <div class="nav-item"><a href="fines.html" class="nav-link active"><i
+                                class="bi bi-cash"></i><span>Fines</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="avatar avatar-md" id="userAvatar">KM</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Mr. Khalid Mehmood</div>
+                        <div class="sidebar-user-role">Librarian</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <div>
+                        <h1 class="page-title">Fine Collection</h1>
+                    </div>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Mr. Khalid Mehmood</div>
+                                <div class="navbar-user-role" id="navUserRole">LIB-001</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">KM</div>
+                        </div>
+                        <div class="dropdown-menu-cms">
+                            <a href="#" class="dropdown-item-cms text-danger" onclick="logout()"><i
+                                    class="bi bi-box-arrow-right"></i><span>Logout</span></a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card danger">
+                        <div class="stat-icon danger"><i class="bi bi-cash-stack"></i></div>
+                        <div class="stat-value" id="pendingAmount">Rs. 130</div>
+                        <div class="stat-label">Pending Fines</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-person-exclamation"></i></div>
+                        <div class="stat-value" id="pendingCount">3</div>
+                        <div class="stat-label">Students with Fines</div>
+                    </div>
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-check-circle"></i></div>
+                        <div class="stat-value">Rs. 450</div>
+                        <div class="stat-label">Collected This Month</div>
+                    </div>
+                    <div class="stat-card primary">
+                        <div class="stat-icon primary"><i class="bi bi-graph-up"></i></div>
+                        <div class="stat-value">Rs. 580</div>
+                        <div class="stat-label">Total This Month</div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Pending Fines Table -->
+                    <div class="col-lg-8">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-exclamation-circle me-2"></i>Pending Fines</h5>
+                                <span class="badge-cms badge-danger" id="pendingBadge">3 Pending</span>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table-cms">
+                                    <thead>
+                                        <tr>
+                                            <th>Fine ID</th>
+                                            <th>Student</th>
+                                            <th>Book</th>
+                                            <th>Days Overdue</th>
+                                            <th>Amount</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="finesTableBody">
+                                        <!-- Rendered by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Collection History -->
+                        <div class="card-cms mt-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-clock-history me-2"></i>Recent Collections</h5>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table-cms">
+                                    <thead>
+                                        <tr>
+                                            <th>Fine ID</th>
+                                            <th>Student</th>
+                                            <th>Book</th>
+                                            <th>Amount</th>
+                                            <th>Paid Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="collectedFinesBody">
+                                        <!-- Rendered by JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel -->
+                    <div class="col-lg-4">
+                        <!-- Quick Collection -->
+                        <div class="card-cms mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-cash me-2"></i>Quick Collection</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="quickCollectForm">
+                                    <div class="mb-3">
+                                        <label class="form-label">Student ID</label>
+                                        <input type="text" class="form-control" id="fineStudentId"
+                                            placeholder="e.g., 24-CIT-101">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Amount (Rs.)</label>
+                                        <input type="number" class="form-control" id="fineAmount" min="0"
+                                            placeholder="0">
+                                    </div>
+                                    <button type="submit" class="btn-cms btn-success w-100">
+                                        <i class="bi bi-check-circle me-2"></i>Collect Fine
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Fine Policy -->
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-info-circle me-2"></i>Fine Policy</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-start gap-3 mb-3 pb-3 border-bottom">
+                                    <div class="avatar avatar-sm bg-warning-light text-warning">
+                                        <i class="bi bi-clock"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Daily Fine Rate</strong>
+                                        <div class="text-muted fs-sm">Rs. 10 per day after due date</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-3 mb-3 pb-3 border-bottom">
+                                    <div class="avatar avatar-sm bg-danger-light text-danger">
+                                        <i class="bi bi-exclamation-triangle"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Maximum Fine</strong>
+                                        <div class="text-muted fs-sm">Rs. 500 per book (capped)</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-3 mb-3 pb-3 border-bottom">
+                                    <div class="avatar avatar-sm bg-primary-light text-primary">
+                                        <i class="bi bi-book"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Lost Book</strong>
+                                        <div class="text-muted fs-sm">Full book price + Rs. 100 processing fee</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="avatar avatar-sm bg-success-light text-success">
+                                        <i class="bi bi-shield-check"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Grace Period</strong>
+                                        <div class="text-muted fs-sm">No fine on weekends & holidays</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script src="../../js/library.js"></script>
+    <script>
+        if (!protectPage(['library'])) { }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderPendingFines();
+            renderCollectedFines();
+            updateStats();
+        });
+
+        function renderPendingFines() {
+            const container = document.getElementById('finesTableBody');
+            const pendingFines = LibraryModule.fines.filter(f => f.status === 'pending');
+
+            const html = pendingFines.map(fine => `
+                <tr>
+                    <td><strong>${fine.id}</strong></td>
+                    <td>
+                        <div>
+                            <strong>${fine.studentName}</strong>
+                            <div class="text-muted fs-sm">${fine.studentId}</div>
+                        </div>
+                    </td>
+                    <td>${fine.bookTitle}</td>
+                    <td><span class="text-danger">${fine.daysOverdue} days</span></td>
+                    <td><strong class="text-danger">Rs. ${fine.amount}</strong></td>
+                    <td>
+                        <button class="btn-cms btn-success btn-sm" onclick="collectFine('${fine.id}')">
+                            <i class="bi bi-check me-1"></i>Collect
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+
+            container.innerHTML = html || '<tr><td colspan="6" class="text-center text-muted py-4">No pending fines 🎉</td></tr>';
+        }
+
+        function renderCollectedFines() {
+            const container = document.getElementById('collectedFinesBody');
+            const collectedFines = LibraryModule.fines.filter(f => f.status === 'paid');
+
+            const html = collectedFines.map(fine => `
+                <tr>
+                    <td><strong>${fine.id}</strong></td>
+                    <td>${fine.studentName}</td>
+                    <td>${fine.bookTitle}</td>
+                    <td><strong>Rs. ${fine.amount}</strong></td>
+                    <td>${fine.paidDate || '-'}</td>
+                    <td><span class="badge-cms badge-success">Paid</span></td>
+                </tr>
+            `).join('');
+
+            container.innerHTML = html || '<tr><td colspan="6" class="text-center text-muted py-4">No collection history</td></tr>';
+        }
+
+        function updateStats() {
+            const pendingFines = LibraryModule.fines.filter(f => f.status === 'pending');
+            const totalPending = pendingFines.reduce((sum, f) => sum + f.amount, 0);
+
+            document.getElementById('pendingAmount').textContent = 'Rs. ' + totalPending;
+            document.getElementById('pendingCount').textContent = pendingFines.length;
+            document.getElementById('pendingBadge').textContent = pendingFines.length + ' Pending';
+        }
+
+        function collectFine(fineId) {
+            const fine = LibraryModule.fines.find(f => f.id === fineId);
+            if (confirm(`Collect Rs. ${fine.amount} fine from ${fine.studentName}?`)) {
+                LibraryModule.collectFine(fineId);
+                alert('Fine collected successfully!');
+                location.reload();
+            }
+        }
+
+        document.getElementById('quickCollectForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const studentId = document.getElementById('fineStudentId').value;
+            const amount = document.getElementById('fineAmount').value;
+            alert(`Quick collection: Rs. ${amount} from ${studentId}`);
+        });
+    </script>
+</body>
+
+</html>

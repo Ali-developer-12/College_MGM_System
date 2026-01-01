@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Info - Student | CMS GCT Bhakkar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Student</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="subjects.html" class="nav-link"><i
+                                class="bi bi-book"></i><span>Subjects</span></a></div>
+                    <div class="nav-item"><a href="transport.html" class="nav-link active"><i
+                                class="bi bi-bus-front"></i><span>Transport</span></a></div>
+                    <div class="nav-item"><a href="library.html" class="nav-link"><i
+                                class="bi bi-journal-bookmark"></i><span>Library</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Account</p>
+                    <div class="nav-item"><a href="fees.html" class="nav-link"><i class="bi bi-cash-stack"></i><span>Fee
+                                Status</span></a></div>
+                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
+                                class="bi bi-megaphone"></i><span>Notices</span></a></div>
+                    <div class="nav-item"><a href="profile.html" class="nav-link"><i
+                                class="bi bi-person"></i><span>Profile</span></a></div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <h1 class="page-title">My Transport</h1>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-bus-front me-2"></i>My Route Details</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-3 mb-4 pb-3 border-bottom">
+                                    <div class="stat-icon primary"><i class="bi bi-signpost-2"></i></div>
+                                    <div>
+                                        <h4 class="mb-0">Route 1</h4><span class="text-muted">Bhakkar City Center</span>
+                                    </div>
+                                    <span class="badge-cms badge-success ms-auto">Active</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3"><span class="text-muted">Bus
+                                        Number</span><strong>GCT-01</strong></div>
+                                <div class="d-flex justify-content-between mb-3"><span
+                                        class="text-muted">Driver</span><strong>M. Akram</strong></div>
+                                <div class="d-flex justify-content-between mb-3"><span class="text-muted">Driver
+                                        Contact</span><strong>0301-1234567</strong></div>
+                                <div class="d-flex justify-content-between mb-3"><span class="text-muted">Pickup
+                                        Point</span><strong>Main Bazar Stop</strong></div>
+                                <div class="d-flex justify-content-between mb-3"><span class="text-muted">Pickup
+                                        Time</span><strong>7:30 AM</strong></div>
+                                <div class="d-flex justify-content-between"><span class="text-muted">Monthly
+                                        Fee</span><strong>Rs. 1,500</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-geo-alt me-2"></i>Route Stops</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="avatar avatar-sm bg-primary text-white">1</div>
+                                    <div><strong>Main Bazar</strong>
+                                        <div class="text-muted fs-sm">7:30 AM</div>
+                                    </div>
+                                    <span class="badge-cms badge-success ms-auto">Your Stop</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="avatar avatar-sm bg-secondary text-white">2</div>
+                                    <div><strong>Hospital Road</strong>
+                                        <div class="text-muted fs-sm">7:35 AM</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="avatar avatar-sm bg-secondary text-white">3</div>
+                                    <div><strong>Railway Station</strong>
+                                        <div class="text-muted fs-sm">7:42 AM</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mb-3">
+                                    <div class="avatar avatar-sm bg-secondary text-white">4</div>
+                                    <div><strong>College Road</strong>
+                                        <div class="text-muted fs-sm">7:50 AM</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="avatar avatar-sm bg-success text-white"><i class="bi bi-check"></i>
+                                    </div>
+                                    <div><strong>GCT Campus</strong>
+                                        <div class="text-muted fs-sm">8:00 AM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['student'])) { }
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+    </script>
+</body>
+
+</html>

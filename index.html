@@ -1,812 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="College Management System - Govt College of Technology, Bhakkar">
-    <title>Login - College Management System | GCT Bhakkar</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap Icons -->
+    <title>CMS - Government College of Technology, Bhakkar</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%231e40af' rx='20' width='100' height='100'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='white'%3E🎓%3C/text%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
-    
     <style>
-        /* Login Page Specific Styles */
-        .login-page {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
             min-height: 100vh;
             display: flex;
+            align-items: center;
+            justify-content: center;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e40af 100%);
-            position: relative;
             overflow: hidden;
         }
-        
-        .login-page::before {
-            content: '';
+
+        /* Animated Background Orbs */
+        .bg-orbs {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
             position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: float 20s ease-in-out infinite;
         }
-        
-        .login-page::after {
-            content: '';
-            position: absolute;
-            bottom: -50%;
-            left: -50%;
-            width: 100%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%);
-            animation: pulse 10s ease-in-out infinite reverse;
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: #3b82f6;
+            top: -150px;
+            right: -100px;
         }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.8; }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: #8b5cf6;
+            bottom: -100px;
+            left: -100px;
+            animation-delay: -10s;
         }
-        
-        /* Left Panel - Branding */
-        .login-branding {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 4rem;
-            position: relative;
-            z-index: 1;
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: #06b6d4;
+            top: 50%;
+            left: 50%;
+            animation-delay: -5s;
         }
-        
-        .college-logo {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
-            animation: float 6s ease-in-out infinite;
-        }
-        
+
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            33% {
+                transform: translate(30px, -30px) rotate(120deg);
+            }
+
+            66% {
+                transform: translate(-20px, 20px) rotate(240deg);
+            }
         }
-        
-        .college-logo i {
-            font-size: 3rem;
-            color: white;
-        }
-        
-        .branding-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0.5rem;
-            line-height: 1.2;
-        }
-        
-        .branding-subtitle {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-        }
-        
-        .branding-features {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .branding-features li {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1rem;
-            font-size: 1rem;
-        }
-        
-        .branding-features li i {
-            width: 32px;
-            height: 32px;
+
+        /* Main Container */
+        .login-container {
+            position: relative;
+            z-index: 1;
+            width: 900px;
+            max-width: 95vw;
+            height: 550px;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #60a5fa;
         }
-        
-        .technologies {
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .technologies-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 1rem;
-        }
-        
-        .tech-badges {
+
+        /* Sliding Panels Container */
+        .panels-container {
+            position: absolute;
+            inset: 0;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            transition: transform 0.6s cubic-bezier(0.68, -0.15, 0.32, 1.15);
         }
-        
-        .tech-badge {
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
+
+        .panels-container.slide-right {
+            transform: translateX(-50%);
         }
-        
-        /* Right Panel - Login Form */
-        .login-form-container {
-            width: 520px;
-            background: white;
+
+        /* Form Panels */
+        .form-panel {
+            width: 50%;
+            min-width: 50%;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 4rem;
-            position: relative;
-            z-index: 1;
-            box-shadow: -20px 0 60px rgba(0, 0, 0, 0.3);
+            padding: 48px;
+            background: white;
         }
-        
-        .login-header {
-            text-align: center;
-            margin-bottom: 2.5rem;
-        }
-        
-        .login-header h2 {
+
+        .form-panel h2 {
             font-size: 1.75rem;
             font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
+            color: #0f172a;
+            margin-bottom: 8px;
         }
-        
-        .login-header p {
-            color: var(--gray-500);
-            margin: 0;
+
+        .form-panel p {
+            color: #64748b;
+            margin-bottom: 28px;
         }
-        
-        .login-form .form-group {
-            margin-bottom: 1.5rem;
+
+        .form-group {
+            margin-bottom: 18px;
         }
-        
-        .login-form .form-label {
+
+        .form-label {
+            display: block;
             font-weight: 600;
-            color: var(--gray-700);
-            margin-bottom: 0.5rem;
+            color: #374151;
+            margin-bottom: 6px;
+            font-size: 0.875rem;
         }
-        
-        .login-form .input-icon-wrapper {
+
+        .input-wrapper {
             position: relative;
         }
-        
-        .login-form .input-icon {
+
+        .input-wrapper i {
             position: absolute;
-            left: 1rem;
+            left: 14px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--gray-400);
-            font-size: 1.25rem;
-            z-index: 1;
+            color: #9ca3af;
+            font-size: 1.1rem;
         }
-        
-        .login-form .form-control {
+
+        .form-input {
             width: 100%;
-            padding: 0.875rem 1rem 0.875rem 3rem;
-            font-size: 1rem;
-            border: 2px solid var(--gray-200);
-            border-radius: 12px;
+            padding: 12px 14px 12px 42px;
+            font-size: 0.95rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            background: #f9fafb;
             transition: all 0.2s;
-            background: var(--gray-50);
+            font-family: inherit;
         }
-        
-        .login-form .form-control:focus {
+
+        .form-input:focus {
             outline: none;
-            border-color: var(--primary);
+            border-color: #3b82f6;
             background: white;
-            box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
         }
-        
-        .login-form .form-control::placeholder {
-            color: var(--gray-400);
-        }
-        
+
         .password-toggle {
             position: absolute;
-            right: 1rem;
+            right: 14px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
             border: none;
-            color: var(--gray-400);
-            cursor: pointer;
-            padding: 0;
-            font-size: 1.25rem;
-            transition: color 0.2s;
-        }
-        
-        .password-toggle:hover {
-            color: var(--gray-600);
-        }
-        
-        .form-options {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-        }
-        
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            color: #9ca3af;
             cursor: pointer;
         }
-        
-        .remember-me input {
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary);
-            cursor: pointer;
-        }
-        
-        .remember-me span {
-            font-size: 0.875rem;
-            color: var(--gray-600);
-        }
-        
-        .forgot-password {
-            font-size: 0.875rem;
-            color: var(--primary);
-            font-weight: 500;
-            text-decoration: none;
-        }
-        
-        .forgot-password:hover {
-            text-decoration: underline;
-        }
-        
-        .btn-login {
+
+        .btn {
             width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
+            padding: 12px;
+            font-size: 0.95rem;
             font-weight: 600;
-            color: white;
-            background: var(--gradient-primary);
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 8px;
         }
-        
-        .btn-login:hover {
+
+        .btn-primary {
+            color: white;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        }
+
+        .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
         }
-        
-        .btn-login:active {
-            transform: translateY(0);
-        }
-        
-        .btn-login.loading {
-            pointer-events: none;
-            opacity: 0.8;
-        }
-        
-        .btn-login .spinner {
-            width: 20px;
-            height: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-top-color: white;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .login-divider {
+
+        /* Info Panels */
+        .info-panel {
+            width: 50%;
+            min-width: 50%;
+            height: 100%;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 1rem;
-            margin: 2rem 0;
-            color: var(--gray-400);
-            font-size: 0.875rem;
+            padding: 48px;
+            text-align: center;
+            color: white;
         }
-        
-        .login-divider::before,
-        .login-divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--gray-200);
+
+        .info-panel.login-info {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
         }
-        
-        .demo-accounts {
-            background: var(--gray-50);
-            border-radius: 12px;
-            padding: 1.5rem;
+
+        .info-panel.signup-info {
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
         }
-        
-        .demo-accounts-title {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--gray-500);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-        
-        .demo-account-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.5rem;
-        }
-        
-        .demo-account {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 0.75rem;
-            background: white;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 1px solid var(--gray-200);
-        }
-        
-        .demo-account:hover {
-            border-color: var(--primary);
-            box-shadow: 0 2px 8px rgba(30, 64, 175, 0.1);
-        }
-        
-        .demo-account .icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
+
+        .info-panel .logo {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            margin-bottom: 20px;
         }
-        
-        .demo-account .icon.student { background: var(--primary-lightest); color: var(--primary); }
-        .demo-account .icon.teacher { background: var(--success-light); color: var(--success); }
-        .demo-account .icon.hod { background: var(--warning-light); color: var(--warning); }
-        .demo-account .icon.principal { background: var(--danger-light); color: var(--danger); }
-        .demo-account .icon.clerk { background: var(--info-light); color: var(--info); }
-        .demo-account .icon.transport { background: #fae8ff; color: #a855f7; }
-        .demo-account .icon.library { background: #fef3c7; color: #d97706; }
-        
-        .demo-account .info {
-            flex: 1;
-            min-width: 0;
+
+        .info-panel .logo i {
+            font-size: 2rem;
         }
-        
-        .demo-account .role {
-            font-size: 0.75rem;
+
+        .info-panel h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .info-panel p {
+            opacity: 0.9;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .btn-outline {
+            padding: 10px 28px;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            border-radius: 25px;
             font-weight: 600;
-            color: var(--gray-800);
+            cursor: pointer;
+            transition: all 0.3s;
+            width: auto;
         }
-        
-        .demo-account .id {
+
+        .btn-outline:hover {
+            background: white;
+            color: #1e40af;
+        }
+
+        /* Demo Section */
+        .demo-section {
+            margin-top: 20px;
+            padding-top: 18px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .demo-title {
             font-size: 0.7rem;
-            color: var(--gray-500);
-            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #9ca3af;
+            margin-bottom: 10px;
         }
-        
-        /* Alert Messages */
-        .login-alert {
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+        }
+
+        .demo-btn {
+            padding: 8px 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #374151;
+            background: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .demo-btn:hover {
+            background: #dbeafe;
+            border-color: #3b82f6;
+            color: #1d4ed8;
+        }
+
+        .demo-btn i {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 2px;
+        }
+
+        /* Alert */
+        .alert {
+            padding: 10px 14px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 0.85rem;
             display: none;
-            align-items: center;
-            gap: 0.75rem;
-            animation: fadeInDown 0.3s ease;
         }
-        
-        .login-alert.show {
-            display: flex;
-        }
-        
-        .login-alert.error {
-            background: var(--danger-light);
-            color: #991b1b;
+
+        .alert-error {
+            background: #fef2f2;
             border: 1px solid #fecaca;
+            color: #dc2626;
         }
-        
-        .login-alert.success {
-            background: var(--success-light);
-            color: #065f46;
-            border: 1px solid #a7f3d0;
+
+        .alert-success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #16a34a;
         }
-        
-        .login-alert i {
-            font-size: 1.25rem;
+
+        /* Features List */
+        .features {
+            text-align: left;
+            margin: 20px 0;
         }
-        
+
+        .features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .features li i {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
         /* Footer */
-        .login-footer {
+        .footer {
+            position: fixed;
+            bottom: 20px;
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--gray-200);
-        }
-        
-        .login-footer p {
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.75rem;
-            color: var(--gray-500);
-            margin: 0;
+            z-index: 1;
         }
-        
+
         /* Responsive */
-        @media (max-width: 1200px) {
-            .login-branding {
-                padding: 3rem;
-            }
-            
-            .branding-title {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .login-page {
+        @media (max-width: 768px) {
+            .login-container {
                 flex-direction: column;
+                height: auto;
+                min-height: 100vh;
+                border-radius: 0;
             }
-            
-            .login-branding {
-                padding: 2rem;
-                text-align: center;
-                align-items: center;
+
+            .panels-container {
+                flex-direction: column;
+                position: relative;
+                transform: none !important;
             }
-            
-            .branding-features {
-                display: none;
-            }
-            
-            .technologies {
-                display: none;
-            }
-            
-            .login-form-container {
+
+            .form-panel,
+            .info-panel {
                 width: 100%;
-                border-radius: 24px 24px 0 0;
-                box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.2);
+                min-width: 100%;
+                padding: 32px 24px;
             }
-        }
-        
-        @media (max-width: 576px) {
-            .login-form-container {
-                padding: 2rem;
+
+            .info-panel {
+                display: none;
             }
-            
-            .demo-account-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .branding-title {
-                font-size: 1.5rem;
-            }
-            
-            .branding-subtitle {
-                font-size: 1rem;
+
+            .demo-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
 </head>
+
 <body>
-    <div class="login-page">
-        <!-- Left Panel - Branding -->
-        <div class="login-branding">
-            <div class="college-logo">
-                <i class="bi bi-mortarboard-fill"></i>
-            </div>
-            <h1 class="branding-title">College Management System</h1>
-            <p class="branding-subtitle">Government College of Technology, Bhakkar</p>
-            
-            <ul class="branding-features">
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Smart Automatic Attendance System</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Real-time Marks & Grade Tracking</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Complete Student Management</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Transport & Library Modules</span>
-                </li>
-                <li>
-                    <i class="bi bi-check-circle-fill"></i>
-                    <span>Comprehensive Analytics & Reports</span>
-                </li>
-            </ul>
-            
-            <div class="technologies">
-                <p class="technologies-title">Technologies Offered</p>
-                <div class="tech-badges">
-                    <span class="tech-badge">DAE Civil</span>
-                    <span class="tech-badge">DAE Electronics</span>
-                    <span class="tech-badge">DAE Electrical</span>
-                    <span class="tech-badge">DAE Mechanical</span>
-                    <span class="tech-badge">DAE CIT</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Right Panel - Login Form -->
-        <div class="login-form-container">
-            <div class="login-header">
-                <h2>Welcome Back!</h2>
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="panels-container" id="panelsContainer">
+            <!-- Login Form -->
+            <div class="form-panel" id="loginPanel">
+                <h2>Welcome Back! 👋</h2>
                 <p>Sign in to access your dashboard</p>
-            </div>
-            
-            <!-- Alert Messages -->
-            <div class="login-alert error" id="loginAlert">
-                <i class="bi bi-exclamation-circle-fill"></i>
-                <span id="alertMessage">Invalid credentials. Please try again.</span>
-            </div>
-            
-            <form class="login-form" id="loginForm">
-                <div class="form-group">
-                    <label class="form-label">College ID</label>
-                    <div class="input-icon-wrapper">
-                        <i class="bi bi-person-badge input-icon"></i>
-                        <input 
-                            type="text" 
-                            class="form-control" 
-                            id="collegeId" 
-                            placeholder="e.g., 24-CIT-101"
-                            autocomplete="username"
-                            required
-                        >
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <div class="input-icon-wrapper">
-                        <i class="bi bi-lock input-icon"></i>
-                        <input 
-                            type="password" 
-                            class="form-control" 
-                            id="password" 
-                            placeholder="Enter your password"
-                            autocomplete="current-password"
-                            required
-                        >
-                        <button type="button" class="password-toggle" id="togglePassword">
-                            <i class="bi bi-eye"></i>
-                        </button>
-                    </div>
-                </div>
-                
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox" id="rememberMe">
-                        <span>Remember me</span>
-                    </label>
-                    <a href="#" class="forgot-password">Forgot Password?</a>
-                </div>
-                
-                <button type="submit" class="btn-login" id="loginBtn">
-                    <span>Sign In</span>
-                    <i class="bi bi-arrow-right"></i>
-                </button>
-            </form>
-            
-            <div class="login-divider">Demo Accounts</div>
-            
-            <div class="demo-accounts">
-                <p class="demo-accounts-title">Quick Login (For Testing)</p>
-                <div class="demo-account-list">
-                    <div class="demo-account" data-id="24-CIT-101" data-password="student123">
-                        <div class="icon student"><i class="bi bi-person"></i></div>
-                        <div class="info">
-                            <div class="role">Student</div>
-                            <div class="id">24-CIT-101</div>
+
+                <div class="alert alert-error" id="loginError"></div>
+                <div class="alert alert-success" id="loginSuccess"></div>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="form-label">User ID</label>
+                        <div class="input-wrapper">
+                            <i class="bi bi-person"></i>
+                            <input type="text" class="form-input" id="loginId" placeholder="Enter your ID" required>
                         </div>
                     </div>
-                    <div class="demo-account" data-id="T-CIT-001" data-password="teacher123">
-                        <div class="icon teacher"><i class="bi bi-person-workspace"></i></div>
-                        <div class="info">
-                            <div class="role">Teacher</div>
-                            <div class="id">T-CIT-001</div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <i class="bi bi-lock"></i>
+                            <input type="password" class="form-input" id="loginPassword" placeholder="Enter password"
+                                required>
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('loginPassword', 'toggleIcon1')">
+                                <i class="bi bi-eye" id="toggleIcon1"></i>
+                            </button>
                         </div>
                     </div>
-                    <div class="demo-account" data-id="HOD-CIT" data-password="hod123">
-                        <div class="icon hod"><i class="bi bi-person-badge-fill"></i></div>
-                        <div class="info">
-                            <div class="role">HOD</div>
-                            <div class="id">HOD-CIT</div>
-                        </div>
-                    </div>
-                    <div class="demo-account" data-id="PRINCIPAL" data-password="admin123">
-                        <div class="icon principal"><i class="bi bi-person-circle"></i></div>
-                        <div class="info">
-                            <div class="role">Principal</div>
-                            <div class="id">PRINCIPAL</div>
-                        </div>
-                    </div>
-                    <div class="demo-account" data-id="CLK-001" data-password="clerk123">
-                        <div class="icon clerk"><i class="bi bi-clipboard-data"></i></div>
-                        <div class="info">
-                            <div class="role">Clerk</div>
-                            <div class="id">CLK-001</div>
-                        </div>
-                    </div>
-                    <div class="demo-account" data-id="TRN-001" data-password="transport123">
-                        <div class="icon transport"><i class="bi bi-bus-front"></i></div>
-                        <div class="info">
-                            <div class="role">Transport</div>
-                            <div class="id">TRN-001</div>
-                        </div>
-                    </div>
-                    <div class="demo-account" data-id="LIB-001" data-password="library123">
-                        <div class="icon library"><i class="bi bi-book"></i></div>
-                        <div class="info">
-                            <div class="role">Library</div>
-                            <div class="id">LIB-001</div>
-                        </div>
+
+                    <button type="submit" class="btn btn-primary" id="loginBtn">
+                        <i class="bi bi-box-arrow-in-right"></i> Sign In
+                    </button>
+                </form>
+
+                <div class="demo-section">
+                    <div class="demo-title">Quick Demo Access</div>
+                    <div class="demo-grid">
+                        <button class="demo-btn" onclick="demoLogin('student')"><i
+                                class="bi bi-person-badge"></i>Student</button>
+                        <button class="demo-btn" onclick="demoLogin('teacher')"><i
+                                class="bi bi-person-workspace"></i>Teacher</button>
+                        <button class="demo-btn" onclick="demoLogin('library')"><i
+                                class="bi bi-book"></i>Library</button>
+                        <button class="demo-btn" onclick="demoLogin('transport')"><i
+                                class="bi bi-bus-front"></i>Transport</button>
+                        <button class="demo-btn" onclick="demoLogin('hod')"><i
+                                class="bi bi-person-video3"></i>HOD</button>
+                        <button class="demo-btn" onclick="demoLogin('clerk')"><i
+                                class="bi bi-clipboard"></i>Clerk</button>
+                        <button class="demo-btn" onclick="demoLogin('principal')"><i
+                                class="bi bi-building"></i>Principal</button>
                     </div>
                 </div>
             </div>
-            
-            <div class="login-footer">
-                <p>&copy; 2024 Government College of Technology, Bhakkar. All rights reserved.</p>
+
+            <!-- Login Info Panel -->
+            <div class="info-panel login-info">
+                <div class="logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <h3>GCT Bhakkar CMS</h3>
+                <p>Complete College Management System for students, faculty, and administration.</p>
+                <ul class="features">
+                    <li><i class="bi bi-check"></i> 7 User Role Dashboards</li>
+                    <li><i class="bi bi-check"></i> Library Management</li>
+                    <li><i class="bi bi-check"></i> Transport Tracking</li>
+                    <li><i class="bi bi-check"></i> Fee Management</li>
+                </ul>
+                <button class="btn-outline" onclick="slideToSignup()">Create Account →</button>
+            </div>
+
+            <!-- Signup Info Panel -->
+            <div class="info-panel signup-info">
+                <div class="logo"><i class="bi bi-person-plus-fill"></i></div>
+                <h3>Join Our Community</h3>
+                <p>Already have an account?</p>
+                <button class="btn-outline" onclick="slideToLogin()">← Back to Login</button>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="form-panel" id="signupPanel">
+                <h2>Create Account ✨</h2>
+                <p>Register for a new student account</p>
+
+                <div class="alert alert-error" id="signupError"></div>
+                <div class="alert alert-success" id="signupSuccess"></div>
+
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="bi bi-person"></i>
+                            <input type="text" class="form-input" id="signupName" placeholder="Enter full name"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <div class="input-wrapper">
+                            <i class="bi bi-envelope"></i>
+                            <input type="email" class="form-input" id="signupEmail" placeholder="student@gct.edu.pk"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <i class="bi bi-lock"></i>
+                            <input type="password" class="form-input" id="signupPassword" placeholder="Create password"
+                                required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-person-plus"></i> Register
+                    </button>
+                </form>
             </div>
         </div>
     </div>
-    
-    <!-- Scripts -->
+
+    <p class="footer">&copy; 2025 Government College of Technology, Bhakkar</p>
+
     <script src="js/auth.js"></script>
     <script>
-        // Password Toggle
-        document.getElementById('togglePassword').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const icon = this.querySelector('i');
-            
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.classList.remove('bi-eye');
-                icon.classList.add('bi-eye-slash');
+        function togglePassword(inputId, iconId) {
+            const input = document.getElementById(inputId);
+            const icon = document.getElementById(iconId);
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
             } else {
-                passwordInput.type = 'password';
-                icon.classList.remove('bi-eye-slash');
-                icon.classList.add('bi-eye');
+                input.type = 'password';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
             }
-        });
-        
-        // Demo Account Quick Fill
-        document.querySelectorAll('.demo-account').forEach(account => {
-            account.addEventListener('click', function() {
-                const id = this.dataset.id;
-                const password = this.dataset.password;
-                
-                document.getElementById('collegeId').value = id;
-                document.getElementById('password').value = password;
-                
-                // Visual feedback
-                this.style.borderColor = 'var(--success)';
-                this.style.background = 'var(--success-light)';
-                
-                setTimeout(() => {
-                    this.style.borderColor = '';
-                    this.style.background = '';
-                }, 500);
-            });
-        });
-        
-        // Form Submission
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        }
+
+        function slideToSignup() {
+            document.getElementById('panelsContainer').classList.add('slide-right');
+        }
+
+        function slideToLogin() {
+            document.getElementById('panelsContainer').classList.remove('slide-right');
+        }
+
+        function showAlert(type, elementId, message) {
+            const el = document.getElementById(elementId);
+            el.textContent = message;
+            el.style.display = 'block';
+            setTimeout(() => el.style.display = 'none', 4000);
+        }
+
+        function demoLogin(role) {
+            const credentials = {
+                student: { id: '24-CIT-101', password: 'student123' },
+                teacher: { id: 'T-001', password: 'teacher123' },
+                hod: { id: 'HOD-CIT', password: 'hod123' },
+                principal: { id: 'PRINCIPAL-001', password: 'principal123' },
+                clerk: { id: 'CLK-001', password: 'clerk123' },
+                transport: { id: 'TRN-001', password: 'transport123' },
+                library: { id: 'LIB-001', password: 'library123' }
+            };
+            const cred = credentials[role];
+            document.getElementById('loginId').value = cred.id;
+            document.getElementById('loginPassword').value = cred.password;
+            document.getElementById('loginForm').dispatchEvent(new Event('submit'));
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
-            const collegeId = document.getElementById('collegeId').value.trim();
-            const password = document.getElementById('password').value;
-            const rememberMe = document.getElementById('rememberMe').checked;
-            const loginBtn = document.getElementById('loginBtn');
-            const alertBox = document.getElementById('loginAlert');
-            
-            // Show loading state
-            loginBtn.classList.add('loading');
-            loginBtn.innerHTML = '<div class="spinner"></div><span>Signing in...</span>';
-            
-            // Simulate authentication delay
+            const userId = document.getElementById('loginId').value.trim();
+            const password = document.getElementById('loginPassword').value;
+
+            const btn = document.getElementById('loginBtn');
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Signing in...';
+            btn.disabled = true;
+
             setTimeout(() => {
-                const result = authenticateUser(collegeId, password);
-                
+                const result = login(userId, password, false);
                 if (result.success) {
-                    // Store session
-                    const sessionData = {
-                        user: result.user,
-                        loginTime: new Date().toISOString(),
-                        rememberMe: rememberMe
-                    };
-                    
-                    if (rememberMe) {
-                        localStorage.setItem('cmsSession', JSON.stringify(sessionData));
-                    } else {
-                        sessionStorage.setItem('cmsSession', JSON.stringify(sessionData));
-                    }
-                    
-                    // Show success message
-                    alertBox.className = 'login-alert success show';
-                    document.getElementById('alertMessage').textContent = 'Login successful! Redirecting...';
-                    
-                    // Redirect based on role
-                    setTimeout(() => {
-                        window.location.href = result.user.dashboardUrl;
-                    }, 1000);
+                    showAlert('success', 'loginSuccess', 'Login successful! Redirecting...');
+                    setTimeout(() => window.location.href = result.redirectUrl, 700);
                 } else {
-                    // Show error message
-                    alertBox.className = 'login-alert error show';
-                    document.getElementById('alertMessage').textContent = result.message;
-                    
-                    // Reset button
-                    loginBtn.classList.remove('loading');
-                    loginBtn.innerHTML = '<span>Sign In</span><i class="bi bi-arrow-right"></i>';
+                    showAlert('error', 'loginError', result.message);
+                    btn.innerHTML = '<i class="bi bi-box-arrow-in-right"></i> Sign In';
+                    btn.disabled = false;
                 }
-            }, 1500);
+            }, 500);
         });
-        
-        // Check for existing session on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            const session = localStorage.getItem('cmsSession') || sessionStorage.getItem('cmsSession');
-            
-            if (session) {
-                const sessionData = JSON.parse(session);
-                // Check if session is still valid (within 24 hours)
-                const loginTime = new Date(sessionData.loginTime);
-                const now = new Date();
-                const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
-                
-                if (hoursDiff < 24) {
-                    // Redirect to dashboard
-                    window.location.href = sessionData.user.dashboardUrl;
-                } else {
-                    // Clear expired session
-                    localStorage.removeItem('cmsSession');
-                    sessionStorage.removeItem('cmsSession');
-                }
-            }
+
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            showAlert('success', 'signupSuccess', 'Registration request submitted! Admin will review.');
         });
     </script>
 </body>
+
 </html>

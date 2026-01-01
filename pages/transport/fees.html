@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fees - Transport | CMS GCT Bhakkar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Transport</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="routes.html" class="nav-link"><i
+                                class="bi bi-signpost-2"></i><span>Routes</span></a></div>
+                    <div class="nav-item"><a href="buses.html" class="nav-link"><i
+                                class="bi bi-bus-front"></i><span>Buses</span></a></div>
+                    <div class="nav-item"><a href="students.html" class="nav-link"><i
+                                class="bi bi-people"></i><span>Students</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Finance</p>
+                    <div class="nav-item"><a href="fees.html" class="nav-link active"><i
+                                class="bi bi-cash-stack"></i><span>Transport Fee</span></a></div>
+                    <div class="nav-item"><a href="reports.html" class="nav-link"><i
+                                class="bi bi-file-bar-graph"></i><span>Reports</span></a></div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <h1 class="page-title">Transport Fee Collection</h1>
+                </div>
+                <div class="navbar-right">
+                    <div class="dropdown-cms">
+                        <div class="navbar-user">
+                            <div class="navbar-user-info">
+                                <div class="navbar-user-name" id="navUserName">Transport Manager</div>
+                                <div class="navbar-user-role" id="navUserRole">TRN-001</div>
+                            </div>
+                            <div class="avatar avatar-md" id="navAvatar">TM</div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="stats-grid">
+                    <div class="stat-card success">
+                        <div class="stat-icon success"><i class="bi bi-cash-stack"></i></div>
+                        <div class="stat-value">Rs. 520K</div>
+                        <div class="stat-label">Monthly Collection</div>
+                    </div>
+                    <div class="stat-card primary">
+                        <div class="stat-icon primary"><i class="bi bi-graph-up"></i></div>
+                        <div class="stat-value">83%</div>
+                        <div class="stat-label">Collection Rate</div>
+                    </div>
+                    <div class="stat-card warning">
+                        <div class="stat-icon warning"><i class="bi bi-clock"></i></div>
+                        <div class="stat-value">Rs. 63K</div>
+                        <div class="stat-label">Pending</div>
+                    </div>
+                    <div class="stat-card danger">
+                        <div class="stat-icon danger"><i class="bi bi-x-circle"></i></div>
+                        <div class="stat-value">Rs. 25.5K</div>
+                        <div class="stat-label">Defaulter</div>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-lg-5">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="bi bi-cash me-2"></i>Collect Fee</h5>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <div class="mb-3"><label class="form-label">Student ID</label><input type="text"
+                                            class="form-control" placeholder="e.g., 24-CIT-101"></div>
+                                    <div class="mb-3"><label class="form-label">Month</label><select
+                                            class="form-select">
+                                            <option>January 2026</option>
+                                            <option>February 2026</option>
+                                        </select></div>
+                                    <div class="mb-3"><label class="form-label">Amount (Rs.)</label><input type="number"
+                                            class="form-control" value="1500"></div>
+                                    <button type="submit" class="btn-cms btn-success w-100"><i
+                                            class="bi bi-check-circle me-2"></i>Collect Fee</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Pending Fees</h5><span class="badge-cms badge-warning">42
+                                    Students</span>
+                            </div>
+                            <div class="card-body p-0">
+                                <table class="table-cms">
+                                    <thead>
+                                        <tr>
+                                            <th>Student</th>
+                                            <th>Route</th>
+                                            <th>Amount</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Usman Tariq</strong>
+                                                <div class="text-muted fs-sm">23-ELEC-101</div>
+                                            </td>
+                                            <td>Route 3</td>
+                                            <td><strong>Rs. 2,000</strong></td>
+                                            <td><button class="btn-cms btn-success btn-sm">Collect</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Bilal Ahmed</strong>
+                                                <div class="text-muted fs-sm">23-MECH-101</div>
+                                            </td>
+                                            <td>Route 4</td>
+                                            <td><strong class="text-danger">Rs. 4,400</strong></td>
+                                            <td><button class="btn-cms btn-danger btn-sm">Urgent</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['transport'])) { }
+        const user = getCurrentUser();
+        if (user) {
+            document.getElementById('navUserName').textContent = user.name;
+            document.getElementById('navUserRole').textContent = user.id;
+        }
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Student | CMS GCT Bhakkar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/dashboard.css">
+</head>
+
+<body>
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo"><i class="bi bi-mortarboard-fill"></i></div>
+                <div class="sidebar-brand">
+                    <h1>CMS</h1>
+                    <p>GCT Bhakkar</p>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <p class="nav-section-title">Student</p>
+                    <div class="nav-item"><a href="dashboard.html" class="nav-link"><i
+                                class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a></div>
+                    <div class="nav-item"><a href="subjects.html" class="nav-link"><i
+                                class="bi bi-book"></i><span>Subjects</span></a></div>
+                    <div class="nav-item"><a href="transport.html" class="nav-link"><i
+                                class="bi bi-bus-front"></i><span>Transport</span></a></div>
+                    <div class="nav-item"><a href="library.html" class="nav-link"><i
+                                class="bi bi-journal-bookmark"></i><span>Library</span></a></div>
+                </div>
+                <div class="nav-section">
+                    <p class="nav-section-title">Account</p>
+                    <div class="nav-item"><a href="fees.html" class="nav-link"><i class="bi bi-cash-stack"></i><span>Fee
+                                Status</span></a></div>
+                    <div class="nav-item"><a href="notices.html" class="nav-link"><i
+                                class="bi bi-megaphone"></i><span>Notices</span></a></div>
+                    <div class="nav-item"><a href="profile.html" class="nav-link active"><i
+                                class="bi bi-person"></i><span>Profile</span></a></div>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="navbar-left">
+                    <button class="sidebar-toggle" id="sidebarToggle"><i class="bi bi-list"></i></button>
+                    <h1 class="page-title">My Profile</h1>
+                </div>
+            </header>
+
+            <div class="page-content">
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="card-cms text-center">
+                            <div class="card-body py-5">
+                                <div class="avatar avatar-xl mx-auto mb-3"
+                                    style="width:100px;height:100px;font-size:2.5rem;" id="profileAvatar">MA</div>
+                                <h4 class="mb-1" id="profileName">Muhammad Ali</h4>
+                                <p class="text-muted mb-3" id="profileId">24-CIT-101</p>
+                                <span class="badge-cms badge-primary">Computer Information Technology</span>
+                                <div class="mt-4"><span class="badge-cms badge-success">Active Student</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="card-cms">
+                            <div class="card-header">
+                                <h5 class="mb-0">Personal Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6"><label class="form-label text-muted">Full Name</label>
+                                        <p class="mb-0 fw-bold">Muhammad Ali</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Father's Name</label>
+                                        <p class="mb-0 fw-bold">Ahmad Khan</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Date of Birth</label>
+                                        <p class="mb-0 fw-bold">March 15, 2006</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">CNIC</label>
+                                        <p class="mb-0 fw-bold">38101-1234567-8</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Phone</label>
+                                        <p class="mb-0 fw-bold">0301-2345678</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Email</label>
+                                        <p class="mb-0 fw-bold">muhammad.ali@student.gct.edu.pk</p>
+                                    </div>
+                                    <div class="col-12"><label class="form-label text-muted">Address</label>
+                                        <p class="mb-0 fw-bold">House #123, Main Bazar, Bhakkar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-cms mt-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">Academic Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-6"><label class="form-label text-muted">Roll Number</label>
+                                        <p class="mb-0 fw-bold">24-CIT-101</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Department</label>
+                                        <p class="mb-0 fw-bold">Computer Information Technology</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Session</label>
+                                        <p class="mb-0 fw-bold">2024-2027</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Current Semester</label>
+                                        <p class="mb-0 fw-bold">1st Semester</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Admission Date</label>
+                                        <p class="mb-0 fw-bold">September 1, 2024</p>
+                                    </div>
+                                    <div class="col-md-6"><label class="form-label text-muted">Attendance</label>
+                                        <p class="mb-0 fw-bold text-success">85%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../../js/auth.js"></script>
+    <script>
+        if (!protectPage(['student'])) { }
+        const user = getCurrentUser();
+        if (user) {
+            const initials = user.name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+            document.getElementById('profileName').textContent = user.name;
+            document.getElementById('profileId').textContent = user.id;
+            document.getElementById('profileAvatar').textContent = initials;
+        }
+        document.getElementById('sidebarToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('collapsed'));
+    </script>
+</body>
+
+</html>

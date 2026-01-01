@@ -110,6 +110,25 @@ function authenticateUser(collegeId, password) {
     return { success: true, message: 'Login successful', user: userSession };
 }
 
+// Login wrapper function for index.html form
+function login(userId, password, remember) {
+    if (!userId || !password) {
+        return { success: false, message: 'Please enter User ID and Password' };
+    }
+
+    const result = authenticateUser(userId, password);
+    if (result.success) {
+        const sessionData = {
+            user: result.user,
+            loginTime: new Date().toISOString()
+        };
+        const storage = remember ? localStorage : sessionStorage;
+        storage.setItem('cmsSession', JSON.stringify(sessionData));
+        return { success: true, redirectUrl: result.user.dashboardUrl };
+    }
+    return result;
+}
+
 function getCurrentUser() {
     const session = localStorage.getItem('cmsSession') || sessionStorage.getItem('cmsSession');
     if (!session) return null;
