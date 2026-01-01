@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HOD Dashboard - Notices</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/hod/notices.css">
+</head>
+
+<body>
+<div class="container my-4">
+
+<!-- Header -->
+<div class="header-banner d-flex justify-content-between align-items-center">
+<div>
+<h4 class="fw-bold">Notices & Announcements</h4>
+<small>CIT Department – Official Notices</small>
+</div>
+<div id="datetime"></div>
+</div>
+
+<!-- Add Notice -->
+<div class="mb-4 text-end">
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#noticeModal">
+<i class="bi bi-plus-circle"></i> Add Notice
+</button>
+</div>
+
+<!-- Notices List -->
+<div id="noticeList"></div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="noticeModal">
+<div class="modal-dialog modal-dialog-centered modal-lg">
+<div class="modal-content">
+<div class="modal-header bg-primary text-white">
+<h5 class="modal-title">Add / Edit Notice</h5>
+<button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+<input type="hidden" id="editIndex">
+
+<div class="mb-3">
+<label class="form-label">Notice Title</label>
+<input type="text" class="form-control" id="nTitle">
+</div>
+
+<div class="mb-3">
+<label class="form-label">Notice Description</label>
+<textarea class="form-control" rows="4" id="nDesc"></textarea>
+</div>
+
+<div class="row">
+<div class="col-md-4 mb-3">
+<label class="form-label">Priority</label>
+<select class="form-select" id="nPriority">
+<option value="Normal">Normal</option>
+<option value="Important">Important</option>
+<option value="Urgent">Urgent</option>
+</select>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="form-label">Audience</label>
+<select class="form-select" id="nAudience">
+<option>All</option>
+<option>Students</option>
+<option>Teachers</option>
+</select>
+</div>
+
+<div class="col-md-4 mb-3">
+<label class="form-label">Date</label>
+<input type="date" class="form-control" id="nDate">
+</div>
+</div>
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+<button class="btn btn-success" onclick="saveNotice()">Save</button>
+</div>
+</div>
+</div>
+</div>
+
+<script src="/js/hod/notices.js">
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HOD Dashboard - Attendance</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/hod/attendance.css">
+</head>
+
+<body>
+<div class="container my-4">
+
+<!-- Header Banner -->
+<div class="header-banner d-flex justify-content-between align-items-center">
+<div>
+<h4 class="fw-bold">Welcome, Dr. Asad Ullah! 👋</h4>
+<small>Computer Information Technology Department Overview</small>
+</div>
+<div class="text-end">
+<span id="datetime"></span>
+</div>
+</div>
+
+<!-- Stat Cards -->
+<div class="row g-4 mb-4">
+<div class="col-md-3">
+<div class="stat-card bg-white">
+<div><i class="bi bi-people-fill bg-students text-white"></i></div>
+<div class="text-end">
+<h4 class="mb-0" id="totalStudents">245</h4>
+<small>Total Students</small>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="stat-card bg-white">
+<div><i class="bi bi-bar-chart-fill bg-attendance text-white"></i></div>
+<div class="text-end">
+<h4 class="mb-0" id="avgAttendance">82%</h4>
+<small>Avg Attendance</small>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Attendance Table -->
+<div class="card card-table mb-4">
+<div class="card-header d-flex justify-content-between align-items-center bg-white border-0">
+<h5 class="mb-0">Attendance Records</h5>
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#attendanceModal">
+<i class="bi bi-plus-lg"></i> Add Attendance
+</button>
+</div>
+<div class="card-body table-responsive">
+<table class="table align-middle text-center mb-0">
+<thead class="table-light">
+<tr>
+<th>#</th>
+<th>Date</th>
+<th>Name</th>
+<th>Department</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="attendanceTable"></tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="attendanceModal">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header bg-primary text-white">
+<h5 class="modal-title">Add Attendance</h5>
+<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<input type="hidden" id="editIndex">
+
+<div class="mb-3">
+<label class="form-label">Date</label>
+<input type="date" class="form-control" id="attDate">
+</div>
+
+<div class="mb-3">
+<label class="form-label">Name</label>
+<input type="text" class="form-control" id="attName" placeholder="Student Name">
+</div>
+
+<div class="mb-3">
+<label class="form-label">Department</label>
+<select class="form-select" id="attDept">
+<option>Civil</option>
+<option>Mechanical</option>
+<option>Electrical</option>
+<option>Electronic</option>
+<option>CIT</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Status</label>
+<select class="form-select" id="attStatus">
+<option>Present</option>
+<option>Absent</option>
+</select>
+</div>
+
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+<button class="btn btn-success" onclick="saveAttendance()">Save</button>
+</div>
+</div>
+</div>
+</div>
+
+<script src="/js/hod/attendance.js">
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

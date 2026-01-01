@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HOD Dashboard - Result</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/hod/results.css">
+</head>
+
+<body>
+<div class="container my-4">
+
+<!-- Header -->
+<div class="header-banner d-flex justify-content-between align-items-center">
+<div>
+<h4 class="fw-bold">Result Management</h4>
+<small>CIT Department – Academic Results</small>
+</div>
+<div id="datetime"></div>
+</div>
+
+<!-- Stats -->
+<div class="row g-4 mb-4">
+<div class="col-md-3">
+<div class="stat-card">
+<div>
+<i class="bi bi-people-fill bg-primary text-white"></i>
+</div>
+<div class="text-end">
+<h4 id="totalStudents">0</h4>
+<small>Total Students</small>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="stat-card">
+<div>
+<i class="bi bi-check-circle-fill bg-success text-white"></i>
+</div>
+<div class="text-end">
+<h4 id="passStudents">0</h4>
+<small>Passed</small>
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="stat-card">
+<div>
+<i class="bi bi-x-circle-fill bg-danger text-white"></i>
+</div>
+<div class="text-end">
+<h4 id="failStudents">0</h4>
+<small>Failed</small>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Result Table -->
+<div class="card card-table">
+<div class="card-header bg-white border-0 d-flex justify-content-between align-items-center">
+<h5 class="mb-0">Student Results</h5>
+<button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#resultModal">
+<i class="bi bi-plus-lg"></i> Add Result
+</button>
+</div>
+
+<div class="card-body table-responsive">
+<table class="table align-middle text-center">
+<thead class="table-light">
+<tr>
+<th>#</th>
+<th>Name</th>
+<th>Department</th>
+<th>Subject</th>
+<th>Marks</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="resultTable"></tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="resultModal">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header bg-primary text-white">
+<h5 class="modal-title">Add / Edit Result</h5>
+<button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+</div>
+
+<div class="modal-body">
+<input type="hidden" id="editIndex">
+
+<div class="mb-3">
+<label class="form-label">Student Name</label>
+<input type="text" class="form-control" id="resName">
+</div>
+
+<div class="mb-3">
+<label class="form-label">Department</label>
+<select class="form-select" id="resDept">
+<option>Civil</option>
+<option>Mechanical</option>
+<option>Electrical</option>
+<option>Electronic</option>
+<option>CIT</option>
+</select>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Subject</label>
+<input type="text" class="form-control" id="resSubject">
+</div>
+
+<div class="mb-3">
+<label class="form-label">Marks (Out of 100)</label>
+<input type="number" class="form-control" id="resMarks">
+</div>
+
+</div>
+
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+<button class="btn btn-success" onclick="saveResult()">Save</button>
+</div>
+</div>
+</div>
+</div>
+
+<script src="/js/hod/results.js">
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

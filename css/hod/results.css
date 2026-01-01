@@ -1,0 +1,28 @@
+body{background:#f8f9fa;font-family:"Segoe UI",sans-serif;}
+.header-banner{
+    background:#f97316;
+    color:#fff;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:30px;
+}
+.stat-card{
+    background:#fff;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.stat-card i{
+    font-size:28px;
+    padding:14px;
+    border-radius:12px;
+}
+.card-table{
+    border-radius:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+.badge-pass{background:#10b981;}
+.badge-fail{background:#ef4444;}

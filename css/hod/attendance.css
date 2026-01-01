@@ -1,0 +1,31 @@
+body{background:#f8f9fa;font-family:"Segoe UI",sans-serif;}
+.header-banner{
+    background:#f97316;
+    color:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:30px;
+}
+.header-banner small{color:rgba(255,255,255,0.85);}
+.stat-card{
+    border-radius:12px;
+    padding:20px;
+    color:#000;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+.stat-card i{
+    font-size:2rem;
+    padding:15px;
+    border-radius:10px;
+}
+.bg-students i{background:#dbeafe;color:#1e40af;}
+.bg-attendance i{background:#fee2e2;color:#991b1b;}
+.card-table{
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+.badge-present{background:#10b981;}
+.badge-absent{background:#ef4444;}

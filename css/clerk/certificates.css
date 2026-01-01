@@ -1,0 +1,41 @@
+body { background:#f4f6f9; }
+
+    .certificate {
+        border: 5px solid #100f0f;
+        padding: 40px;
+        background: #fff;
+        max-width: 900px;
+        margin: auto;
+        font-family: "Times New Roman", serif;
+    }
+
+    .certificate h1 {
+        font-size: 40px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .certificate p {
+        font-size: 20px;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    .sign {
+        margin-top: 60px;
+    }
+
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        .certificate, .certificate * {
+            visibility: visible;
+        }
+        .certificate {
+            position: absolute;
+            top: 0;
+            left: 0cla;
+            width: 100%;
+        }
+    }

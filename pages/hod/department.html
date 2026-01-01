@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HOD Dashboard - Department Management</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/hod/department.css">
+</head>
+
+<body>
+
+<div class="container-fluid px-4 mt-4">
+
+<!-- Header -->
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="stat-card p-4 shadow">
+            <h6 class="text-uppercase">Total Departments</h6>
+            <h1 id="totalDept">5</h1>
+        </div>
+    </div>
+    <div class="col-md-9 d-flex align-items-center">
+        <h2 class="fw-bold text-dark">HOD Dashboard</h2>
+    </div>
+</div>
+
+<!-- Controls -->
+<div class="card shadow-sm mb-3">
+<div class="card-body row g-3 align-items-center">
+    <div class="col-md-4">
+        <input type="text" id="search" class="form-control" placeholder="Search Department">
+    </div>
+    <div class="col-md-8 text-end">
+        <button class="btn btn-accent px-4" data-bs-toggle="modal" data-bs-target="#deptModal">
+            + Add Department
+        </button>
+    </div>
+</div>
+</div>
+
+<!-- Table -->
+<div class="card shadow-sm">
+<div class="card-body table-responsive">
+<table class="table align-middle text-center">
+<thead>
+<tr>
+<th>#</th>
+<th>Department</th>
+<th>Code</th>
+<th>HOD</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="deptTable"></tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="deptModal">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Department Details</h5>
+</div>
+<div class="modal-body">
+<input type="hidden" id="editIndex">
+<div class="mb-2">
+<label class="form-label">Department Name</label>
+<input class="form-control" id="deptName">
+</div>
+<div class="mb-2">
+<label class="form-label">Department Code</label>
+<input class="form-control" id="deptCode">
+</div>
+<div class="mb-2">
+<label class="form-label">HOD Name</label>
+<input class="form-control" id="hodName">
+</div>
+<div class="mb-2">
+<label class="form-label">Status</label>
+<select class="form-select" id="deptStatus">
+<option>Active</option>
+<option>Inactive</option>
+</select>
+</div>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+<button class="btn btn-accent" onclick="saveDept()">Save</button>
+</div>
+</div>
+</div>
+</div>
+
+<script src="/js/hod/department.js">
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

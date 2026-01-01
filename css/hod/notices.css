@@ -1,0 +1,20 @@
+body{background:#f8f9fa;font-family:"Segoe UI",sans-serif;}
+.header-banner{
+    background:#f97316;
+    color:#fff;
+    border-radius:14px;
+    padding:22px;
+    margin-bottom:30px;
+}
+.notice-card{
+    background:#fff;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    margin-bottom:20px;
+}
+.badge-normal{background:#0d6efd;}
+.badge-important{background:#f59e0b;}
+.badge-urgent{background:#ef4444;}
+.notice-title{font-weight:600;font-size:1.1rem;}
+.notice-meta{font-size:.85rem;color:#6b7280;}

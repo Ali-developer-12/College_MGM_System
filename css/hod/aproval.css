@@ -1,0 +1,23 @@
+:root{
+    --primary:#1f2937;
+    --accent:#10b981;
+    --rejected:#ef4444;
+    --pending:#f59e0b;
+}
+body{
+    background:#f3f4f6;
+    font-family:"Segoe UI",sans-serif;
+}
+.card{
+    border:none;
+    border-radius:16px;
+}
+.table thead{
+    background:var(--primary);
+    color:#fff;
+}
+.btn-accent{background:var(--accent);color:#fff;}
+.btn-accent:hover{background:#059669;color:#fff;}
+.badge-approved{background:var(--accent);}
+.badge-rejected{background:var(--rejected);}
+.badge-pending{background:var(--pending);}
