@@ -544,9 +544,8 @@ body {
 }
 
 .tab-btn-cms:hover {
-    background: rgba(13, 110, 253, 0.05);
-    /* Using bootstrap primary blue roughly */
-    color: #0d6efd;
+    background: var(--primary-lightest);
+    color: var(--primary);
 }
 
 .tab-btn-cms:hover i {
@@ -554,9 +553,9 @@ body {
 }
 
 .tab-btn-cms.active {
-    background: #0d6efd;
+    background: var(--primary);
     color: white;
-    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
 }
 
 .tab-btn-cms.active i {

@@ -94,11 +94,11 @@ const TeacherModule = {
 
         grid.innerHTML = this.students.map(s => `
             <div class="col-md-4 col-lg-3 mb-3">
-                <div class="attendance-card ${this.attendanceData[s.id] || ''}" onclick="TeacherModule.toggleAttendance('${s.id}')">
+                <div class="attendance-card ${this.attendanceData[s.id] || ''}" id="card-${s.id}" onclick="TeacherModule.toggleAttendance('${s.id}')">
                     <div class="d-flex align-items-center gap-3">
                         <div class="avatar avatar-md">${s.name.split(' ').map(n => n[0]).join('')}</div>
                         <div>
-                            <h6 class="mb-0 text-truncate" style="max-width: 150px;">${s.name}</h6>
+                            <h6 class="mb-0 text-truncate highlight-name" style="max-width: 150px;">${s.name}</h6>
                             <small class="text-muted">${s.id}</small>
                         </div>
                     </div>
@@ -115,15 +115,32 @@ const TeacherModule = {
         this.updateAttendanceSummary();
     },
 
+    loadStudents: function () {
+        this.loadAttendanceSheet();
+    },
+
+    toggleAttendance: function (id) {
+        const current = this.attendanceData[id];
+        let next = 'present';
+
+        // Workflow Optimization: If already present, next is absent (for quick adjustment after Mark All Present)
+        // Order: Unmarked -> Present -> Absent -> Late -> Unmarked
+        if (current === 'present') next = 'absent';
+        else if (current === 'absent') next = 'late';
+        else if (current === 'late') next = '';
+
+        this.markStatus(id, next);
+    },
+
     markStatus: function (id, status) {
         this.attendanceData[id] = status;
         const card = document.getElementById('card-' + id);
         if (!card) return;
 
-        card.className = 'attendance-card ' + status;
+        card.className = 'attendance-card ' + (status || '');
         card.querySelectorAll('.status-btn').forEach(btn => {
             btn.classList.remove('active');
-            if (btn.classList.contains(status)) btn.classList.add('active');
+            if (status && btn.classList.contains(status)) btn.classList.add('active');
         });
 
         this.updateAttendanceSummary();

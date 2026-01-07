@@ -23,7 +23,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1e40af 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #312e81 100%);
             overflow: hidden;
         }
 
@@ -46,7 +46,7 @@
         .orb-1 {
             width: 500px;
             height: 500px;
-            background: #3b82f6;
+            background: #4f46e5;
             top: -150px;
             right: -100px;
         }
@@ -54,7 +54,7 @@
         .orb-2 {
             width: 400px;
             height: 400px;
-            background: #8b5cf6;
+            background: #6366f1;
             bottom: -100px;
             left: -100px;
             animation-delay: -10s;
@@ -63,7 +63,7 @@
         .orb-3 {
             width: 300px;
             height: 300px;
-            background: #06b6d4;
+            background: #4338ca;
             top: 50%;
             left: 50%;
             animation-delay: -5s;
@@ -143,7 +143,7 @@
         .form-label {
             display: block;
             font-weight: 600;
-            color: #374151;
+            color: #1e293b;
             margin-bottom: 6px;
             font-size: 0.875rem;
         }
@@ -163,7 +163,7 @@
 
         .form-input {
             width: 100%;
-            padding: 12px 14px 12px 42px;
+            padding: 12px 44px 12px 42px;
             font-size: 0.95rem;
             border: 2px solid #e5e7eb;
             border-radius: 10px;
@@ -174,20 +174,24 @@
 
         .form-input:focus {
             outline: none;
-            border-color: #3b82f6;
+            border-color: #4f46e5;
             background: white;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
         }
 
         .password-toggle {
             position: absolute;
-            right: 14px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
             border: none;
             color: #9ca3af;
             cursor: pointer;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .btn {
@@ -207,7 +211,7 @@
 
         .btn-primary {
             color: white;
-            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
         }
 
         .btn-primary:hover {
@@ -230,11 +234,11 @@
         }
 
         .info-panel.login-info {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #4f46e5 100%);
         }
 
         .info-panel.signup-info {
-            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+            background: linear-gradient(135deg, #312e81 0%, #4338ca 100%);
         }
 
         .info-panel .logo {
@@ -278,7 +282,7 @@
 
         .btn-outline:hover {
             background: white;
-            color: #1e40af;
+            color: #4f46e5;
         }
 
         /* Demo Section */
@@ -315,9 +319,9 @@
         }
 
         .demo-btn:hover {
-            background: #dbeafe;
-            border-color: #3b82f6;
-            color: #1d4ed8;
+            background: #eef2ff;
+            border-color: #4f46e5;
+            color: #4338ca;
         }
 
         .demo-btn i {
@@ -535,6 +539,10 @@
                             <i class="bi bi-lock"></i>
                             <input type="password" class="form-input" id="signupPassword" placeholder="Create password"
                                 required>
+                            <button type="button" class="password-toggle"
+                                onclick="togglePassword('signupPassword', 'toggleIcon2')">
+                                <i class="bi bi-eye" id="toggleIcon2"></i>
+                            </button>
                         </div>
                     </div>
 
@@ -580,9 +588,9 @@
         function demoLogin(role) {
             const credentials = {
                 student: { id: '24-CIT-101', password: 'student123' },
-                teacher: { id: 'T-001', password: 'teacher123' },
+                teacher: { id: 'T-CIT-001', password: 'teacher123' },
                 hod: { id: 'HOD-CIT', password: 'hod123' },
-                principal: { id: 'PRINCIPAL-001', password: 'principal123' },
+                principal: { id: 'PRINCIPAL', password: 'admin123' },
                 clerk: { id: 'CLK-001', password: 'clerk123' },
                 transport: { id: 'TRN-001', password: 'transport123' },
                 library: { id: 'LIB-001', password: 'library123' }

@@ -61,12 +61,22 @@ const USERS_DB = {
         technology: 'ELECTRICAL', department: 'Electrical Technology',
         password: 'hod123', dashboardUrl: 'pages/hod/dashboard.html'
     },
+    'HOD-ELECTRONICS': {
+        id: 'HOD-ELECTRONICS', name: 'Engr. Farhan Mustafa', role: 'hod',
+        technology: 'ELECTRONICS', department: 'Electronics Technology',
+        password: 'hod123', dashboardUrl: 'pages/hod/dashboard.html'
+    },
+    'HOD-MECH': {
+        id: 'HOD-MECH', name: 'Engr. Sajid Hussain', role: 'hod',
+        technology: 'MECHANICAL', department: 'Mechanical Technology',
+        password: 'hod123', dashboardUrl: 'pages/hod/dashboard.html'
+    },
 
     // Principal
     'PRINCIPAL': {
-        id: 'PRINCIPAL', name: 'Sir Javed Ali Bhidwal', role: 'principal',
+        id: 'PRINCIPAL', name: 'Prof. Javed Ali Bhidwal', role: 'principal',
         designation: 'Principal', email: 'principal@gctb.edu.pk',
-        phone: '0300-8765432',
+        phone: '0606-510051',
         password: 'admin123', dashboardUrl: 'pages/principal/dashboard.html'
     },
 

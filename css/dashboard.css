@@ -190,6 +190,9 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
 }
 
 .sidebar-user-role {
@@ -316,6 +319,7 @@
     background: var(--white);
     border-color: var(--primary);
     outline: none;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .navbar-search i {
@@ -492,7 +496,10 @@
 .navbar-user-name {
     font-size: var(--text-sm);
     font-weight: var(--font-semibold);
-    color: var(--gray-800);
+    color: var(--primary);
+    background: var(--primary-lightest);
+    padding: 2px 8px;
+    border-radius: 6px;
 }
 
 .navbar-user-role {

@@ -28,7 +28,7 @@
 
 .btn-cms:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.4);
 }
 
 .btn-cms:disabled {
@@ -373,12 +373,20 @@
 .badge-cms {
     display: inline-flex;
     align-items: center;
-    padding: var(--space-1) var(--space-3);
+    padding: 0.25rem 0.75rem;
     font-size: var(--text-xs);
     font-weight: var(--font-semibold);
     border-radius: var(--radius-full);
     text-transform: uppercase;
     letter-spacing: 0.5px;
+}
+
+.highlight-name {
+    background: var(--primary-lightest);
+    color: var(--primary);
+    padding: 2px 8px;
+    border-radius: var(--radius-md);
+    font-weight: 700;
 }
 
 .badge-primary {
@@ -388,22 +396,22 @@
 
 .badge-success {
     background: var(--success-light);
-    color: #059669;
+    color: #065f46;
 }
 
 .badge-warning {
     background: var(--warning-light);
-    color: #b45309;
+    color: #92400e;
 }
 
 .badge-danger {
     background: var(--danger-light);
-    color: #dc2626;
+    color: #991b1b;
 }
 
 .badge-info {
     background: var(--info-light);
-    color: #0891b2;
+    color: #155e75;
 }
 
 .badge-secondary {
@@ -725,6 +733,29 @@
     animation: spin 1s linear infinite;
 }
 
+.spinner-border {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    vertical-align: text-bottom;
+    border: 0.2em solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spinner-border .75s linear infinite;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.2em;
+}
+
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .page-loader {
     position: fixed;
     top: 0;
@@ -736,4 +767,54 @@
     align-items: center;
     justify-content: center;
     z-index: var(--z-modal);
+}
+
+/* ===== PREMIUM WELCOME BANNER ===== */
+.welcome-banner-premium {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6) var(--space-8);
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: var(--space-6);
+    box-shadow: var(--shadow-lg), 0 0 20px rgba(79, 70, 229, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.welcome-banner-premium h2,
+.welcome-banner-premium h3 {
+    color: white !important;
+    font-weight: var(--font-bold);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-banner-premium p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.welcome-banner-premium .datetime {
+    text-align: right;
+}
+
+.welcome-banner-premium .date {
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.welcome-banner-premium .time {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    color: white;
+}
+
+.welcome-banner-premium::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
 }

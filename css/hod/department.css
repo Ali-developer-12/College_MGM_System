@@ -1,48 +1,51 @@
-:root{
-    --primary:#1f2937;     /* Dark Navy */
-    --secondary:#374151;   /* Slate */
-    --accent:#10b981;      /* Emerald */
-    --bg:#f3f4f6;          /* Soft Gray */
+/* Unified with Main Theme */
+:root {
+    --primary: var(--primary);
+    --secondary: var(--gray-700);
+    --accent: var(--success);
+    --bg: var(--gray-100);
 }
 
-body{
-    background:var(--bg);
+body {
+    background: var(--bg);
     font-family: "Segoe UI", sans-serif;
 }
 
-.card{
-    border-radius:14px;
-    border:none;
+.card {
+    border-radius: 14px;
+    border: none;
 }
 
-.stat-card{
-    background:linear-gradient(135deg,var(--primary),var(--secondary));
-    color:#fff;
-    border-radius:18px;
+.stat-card {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+    border-radius: 18px;
 }
 
-.btn-accent{
-    background:var(--accent);
-    color:#fff;
-}
-.btn-accent:hover{
-    background:#059669;
-    color:#fff;
+.btn-accent {
+    background: var(--accent);
+    color: #fff;
 }
 
-.badge-active{
-    background:#10b981;
-}
-.badge-inactive{
-    background:#ef4444;
+.btn-accent:hover {
+    background: #059669;
+    color: #fff;
 }
 
-.table thead{
-    background:var(--primary);
-    color:#fff;
+.badge-active {
+    background: #10b981;
 }
 
-.modal-header{
-    background:var(--primary);
-    color:#fff;
+.badge-inactive {
+    background: #ef4444;
+}
+
+.table thead {
+    background: var(--primary);
+    color: #fff;
+}
+
+.modal-header {
+    background: var(--primary);
+    color: #fff;
 }

@@ -161,15 +161,18 @@
                     </div>
                 </div>
 
-                <!-- Quick Actions -->
-                <div class="d-flex gap-2 mb-4">
-                    <button class="btn-cms btn-success btn-sm" onclick="TeacherModule.markAll('present')"><i
-                            class="bi bi-check-all"></i> Mark All Present</button>
-                    <button class="btn-cms btn-danger btn-sm" onclick="TeacherModule.markAll('absent')"><i
-                            class="bi bi-x-circle"></i>
-                        Mark All Absent</button>
-                    <button class="btn-cms btn-secondary btn-sm" onclick="TeacherModule.resetAttendance()"><i
-                            class="bi bi-arrow-counterclockwise"></i> Reset</button>
+                <div class="d-flex gap-3 mb-4">
+                    <button class="btn-cms btn-success btn-lg flex-grow-1 shadow-sm"
+                        onclick="TeacherModule.markAll('present')">
+                        <i class="bi bi-check-all me-2"></i> Step 1: Mark All Present
+                    </button>
+                    <button class="btn-cms btn-secondary btn-lg" onclick="TeacherModule.resetAttendance()">
+                        <i class="bi bi-arrow-counterclockwise"></i> Reset
+                    </button>
+                </div>
+                <div class="alert alert-info py-2 px-3 mb-4 fs-sm">
+                    <i class="bi bi-info-circle me-1"></i> Tip: After marking all present, click students to mark them
+                    absent.
                 </div>
 
                 <!-- Students Grid -->

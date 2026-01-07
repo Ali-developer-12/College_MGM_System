@@ -7,7 +7,7 @@
 const PRINCIPAL_DATA = {
     // Department Data
     departments: [
-        { id: 'cit', name: 'Computer Information Technology', code: 'CIT', hod: 'Rao Muhammad Haziq', students: 245, teachers: 7, attendance: 88, passRate: 92 },
+        { id: 'cit', name: 'Computer Information Technology', code: 'CIT', hod: 'Dr. Asad Ullah', students: 245, teachers: 7, attendance: 88, passRate: 92 },
         { id: 'civil', name: 'Civil Technology', code: 'CIVIL', hod: 'Umar Farooq', students: 312, teachers: 4, attendance: 85, passRate: 89 },
         { id: 'electrical', name: 'Electrical Technology', code: 'ELEC', hod: 'Engr.Muhammad Naveed Iqbal', students: 298, teachers: 5, attendance: 82, passRate: 87 },
         { id: 'electronics', name: 'Electronics Technology', code: 'ELCT', hod: 'Muhammad Shahazaib Sana', students: 186, teachers: 4, attendance: 78, passRate: 85 },
@@ -16,20 +16,20 @@ const PRINCIPAL_DATA = {
 
     // Staff Summary
     staff: {
-        total: 56,
-        teaching: 42,
-        nonTeaching: 23,
+        total: 65,
+        teaching: 50,
+        nonTeaching: 15,
         hods: 5
     },
 
     // Student Summary
     students: {
-        total: 1245,
-        year1: 420,
-        year2: 410,
-        year3: 415,
-        morningShift: 680,
-        eveningShift: 565
+        total: 2000,
+        year1: 700,
+        year2: 680,
+        year3: 620,
+        morningShift: 1100,
+        eveningShift: 900
     },
 
     // Recent Activities
@@ -154,7 +154,7 @@ function renderDepartmentCards(containerId) {
             <div class="department-card ${dept.id}">
                 <div class="dept-icon"><i class="bi ${iconMap[dept.id] || 'bi-building'}"></i></div>
                 <h4>${dept.name}</h4>
-                <p class="hod-name">HOD: ${dept.hod}</p>
+                <p class="hod-name">HOD: <span class="highlight-name">${dept.hod}</span></p>
                 <div class="dept-stats">
                     <div class="dept-stat">
                         <div class="value">${dept.students}</div>
@@ -193,7 +193,7 @@ function renderDepartmentTable(containerId) {
     const html = PRINCIPAL_DATA.departments.map(dept => `
         <tr>
             <td><strong>${dept.code}</strong></td>
-            <td>${dept.hod}</td>
+            <td><span class="highlight-name">${dept.hod}</span></td>
             <td>${dept.students}</td>
             <td>${dept.teachers}</td>
             <td><span class="badge-cms badge-${dept.attendance >= 80 ? 'success' : 'warning'}">${dept.attendance}%</span></td>
